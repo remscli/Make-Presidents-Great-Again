@@ -2,9 +2,16 @@
     #Utilities
 \*------------------------------------*/
 
+.text-left {
+  text-align: left !important;
+}
 .text-center {
   text-align: center !important;
 }
+.text-right {
+  text-align: right !important;
+}
+
 .color-primary {
   color: $brand-primary !important;
 }
@@ -23,23 +30,19 @@
 .color-danger {
   color: $color-danger !important;
 }
+
 .font-regular {
-  font-family: $font-primary-regular !important;
+  font-weight: 500;
 }
 .font-medium {
-  font-family: $font-primary !important;
+  font-weight: 600;
 }
 .font-bold {
-  font-family: $font-primary-bold !important;
+  font-weight: 700;
 }
 
-.padding-15 {
-  padding: 15px !important;
-}
-
-.no-content {
-  padding: 0 3rem !important;
-  text-align: center !important;
+.upper {
+  text-transform: uppercase;
 }
 
 .hidden {

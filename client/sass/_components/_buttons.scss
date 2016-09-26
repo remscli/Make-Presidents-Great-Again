@@ -3,10 +3,11 @@
 \*------------------------------------*/
 
 .btn {
-  padding: .8rem 2rem;
+  position: relative;
+  padding: 1rem 2.5rem;
   background: $color-dark;
   border: none;
-  border-radius: 50px;
+  border-radius: 0;
   color: #fff;
   font-size: 1.5rem;
   letter-spacing: .05rem;
@@ -15,81 +16,37 @@
     outline: none;
   }
 
-  &.btn--large {
-    padding: 1.1rem 3.5rem;
-    font-size: 1.8rem;
-  }
+  &--primary {
+    border: 2px solid $brand-secondary;
 
-  &.btn--full {
-    @extend .btn--large;
-    width: 100%;
-  }
-
-  &.btn--translucent {
-    background: rgba(255,255,255,0.40);
-  }
-
-  &.btn--primary-gradient {
-    color: #fff;
-    background: $brand-primary;
-  }
-
-  &.btn--neutral {
-    background: none;
-    border: none;
-    outline: none;
-    -webkit-appearance: none;
-  }
-
-  &.btn--fab {
-    padding: 0;
-    width: 55px;
-    height: 55px;
-    color: #fff;
-    text-align: center;
-    font-size: 5rem;
-    line-height: 60px;
-    background: $brand-primary;
-    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
-    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
-    outline: none;
-
-    &:active {
-      box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+    &::before,
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 2rem;
+      height: 2px;
+      background: $brand-primary;
+      position: absolute;
+      transition: left .3s ease-out;
     }
-  }
 
-  &.btn--picture-selection {
+    &:before {
+      top: -2px;
+      left: 20%;
+    }
 
-  }
+    &:after {
+      bottom: -2px;
+      left: 60%;
+    }
 
-  &.btn--mini-fab {
-    @extend .btn--fab;
-    width: 35px;
-    height: 35px;
-    font-size: 2.8rem;
-    line-height: 39px;
-  }
-
-
-  .btn__picture_wrapper {
-    vertical-align: middle;
-    width: 4rem;
-    height: 4rem;
-    overflow: hidden;
-    border-radius: 5px;
-    display: inline-block;
-    margin-right: 1rem;
-  }
-
-  .btn__picture {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .btn__icon {
-    vertical-align: middle;
-    width:40px;
-    height:40px;
+    &:hover {
+      &::before {
+        left: 80%;
+      }
+      &::after {
+        left: 20%;
+      }
+    }
   }
 }

@@ -6,7 +6,7 @@ var server = http.Server(app);
 
 app.use(express.static('client'));
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   res.sendFile('index.html', {"root": __dirname + '/client'});
 });
 

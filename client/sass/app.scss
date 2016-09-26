@@ -3,7 +3,6 @@
 @import "_base/_normalize",
         "_base/_config",
         "_base/_mixins",
-        "_base/_fonts",
         "_base/_typography",
         "_base/_layout",
         "_base/_utilities",
@@ -11,4 +10,4 @@
 
 @import "_components/_buttons";
 
-//@import "_modules/_navbar";
+@import "_templates/_home";

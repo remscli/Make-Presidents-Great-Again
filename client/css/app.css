@@ -407,7 +407,7 @@ th {
 \*------------------------------------*/
 p {
   font-size: 1.4rem;
-  color: #9197AE;
+  color: #505976;
   line-height: 1.4em;
 }
 
@@ -416,31 +416,34 @@ p {
 \*------------------------------------*/
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   overflow-x: hidden;
   position: relative;
   font-size: 1.4rem;
-  color: #273043;
-  font-family: "brandongrotesquemedium", Arial, sans-serif;
+  color: #fff;
+  font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: #F04846;
+  background: #272b39;
+  padding: 2rem;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #F04846;
+  background: #272b39;
 }
 
 ::selection {
   color: #fff;
-  background: #F04846;
+  background: #272b39;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #F04846;
+  background: #272b39;
 }
 
 * {
@@ -460,6 +463,12 @@ sub, sup {
   font-size: 65%;
 }
 
+.main {
+  height: 100%;
+  padding: 2rem;
+  border: 4px solid #eb212e;
+}
+
 /*------------------------------------*\
     #Utilities
 \*------------------------------------*/
@@ -468,19 +477,19 @@ sub, sup {
 }
 
 .color-primary {
-  color: #F04846 !important;
+  color: #272b39 !important;
 }
 
 .color-secondary {
-  color: #F45C43 !important;
+  color: #eb212e !important;
 }
 
 .color-dark {
-  color: #273043 !important;
+  color: #272b39 !important;
 }
 
 .color-light {
-  color: #9197AE !important;
+  color: #505976 !important;
 }
 
 .color-success {
@@ -488,19 +497,19 @@ sub, sup {
 }
 
 .color-danger {
-  color: #F45C43 !important;
+  color: #eb212e !important;
 }
 
 .font-regular {
-  font-family: "brandongrotesqueregular", Arial, sans-serif !important;
+  font-family: Arial, sans-serif !important;
 }
 
 .font-medium {
-  font-family: "brandongrotesquemedium", Arial, sans-serif !important;
+  font-family: Arial, sans-serif !important;
 }
 
 .font-bold {
-  font-family: "brandongrotesquebold", Arial, sans-serif !important;
+  font-family: Arial, sans-serif !important;
 }
 
 .padding-15 {
@@ -547,42 +556,42 @@ input[type="password"],
 select {
   background: none;
   border: none;
-  border-bottom: 2px solid #dadce4;
+  border-bottom: 2px solid #9199b4;
   border-radius: 0;
   padding: .4rem 0;
-  color: #9197AE;
+  color: #505976;
 }
 .media-field:focus, input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 select:focus {
   outline: none;
-  border-color: #F04846;
+  border-color: #272b39;
 }
 
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
-  color: #9197AE;
+  color: #505976;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #9197AE;
+  color: #505976;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #9197AE;
+  color: #505976;
 }
 
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: #9197AE;
+  color: #505976;
 }
 
 ::-ms-input-placeholder {
   /* Edge */
-  color: #9197AE;
+  color: #505976;
 }
 
 .media-field {
@@ -608,7 +617,7 @@ select {
 }
 
 label {
-  color: #9197AE;
+  color: #505976;
   font-size: 1.5rem;
   margin-bottom: .5rem;
   display: inline-block;
@@ -626,7 +635,7 @@ label {
   cursor: pointer;
   text-align: center;
   background: #fff;
-  border: 3px solid #F04846;
+  border: 3px solid #272b39;
   border-radius: 100%;
   position: absolute;
   left: 0;
@@ -642,7 +651,7 @@ label {
   visibility: hidden;
 }
 .checkbox input[type=checkbox]:checked + label {
-  background: #F04846;
+  background: #272b39;
 }
 .checkbox input[type=checkbox]:checked + label::after {
   opacity: 1;
@@ -653,7 +662,7 @@ label {
 \*------------------------------------*/
 .btn {
   padding: .8rem 2rem;
-  background: #273043;
+  background: #272b39;
   border: none;
   border-radius: 50px;
   color: #fff;
@@ -675,7 +684,7 @@ label {
 }
 .btn.btn--primary-gradient {
   color: #fff;
-  background: #F04846;
+  background: #272b39;
 }
 .btn.btn--neutral {
   background: none;
@@ -691,7 +700,7 @@ label {
   text-align: center;
   font-size: 5rem;
   line-height: 60px;
-  background: #F04846;
+  background: #272b39;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);

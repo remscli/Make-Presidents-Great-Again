@@ -2,16 +2,21 @@
     #Layout
 \*------------------------------------*/
 
-html { font-size: 62.5%; }
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
 
 body {
+  height: 100%;
   overflow-x: hidden;
   position: relative;
   font-size: 1.4rem;
-  color: $color-dark;
+  color: #fff;
   font-family: $font-primary;
   -webkit-font-smoothing: antialiased;
   background: $brand-primary;
+  padding: 2rem;
 }
 
 ::selection {
@@ -41,3 +46,9 @@ sub, sup {
   font-size: 65%;
 }
 
+
+.main {
+  height: 100%;
+  padding: 2rem;
+  border: 4px solid $brand-secondary;
+}

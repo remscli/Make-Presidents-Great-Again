@@ -62,7 +62,7 @@ define(['jquery',
       },
 
       goBuild: function () {
-        this.slideshow.stopAutoSliding();
+        this.slideshow.displayImage('background-build.jpg');
         this.goTo(null, {
           url: '/build',
           method: function () {

@@ -11,7 +11,7 @@ define(['jquery',
       el: '#backgroundSlideshow',
 
       initialize: function () {
-        this.duration = 5; // In seconds
+        this.duration = 4; // In seconds
         this.currentIndex = null;
         this.slides = this.$el.find('.bg-slideshow__item');
 
@@ -25,7 +25,7 @@ define(['jquery',
         // Show next slide
         $(this.slides[newIndex]).addClass('active');
         TweenMax.to(this.slides[newIndex], 0.8, {opacity: 1, zIndex: -2});
-        TweenMax.to(this.slides[newIndex], this.duration * 1.5, {scale: 1.1, ease: Power0.easeNone});
+        TweenMax.to(this.slides[newIndex], this.duration * 5, {scale: 1.15, ease: Power3.easeOut});
 
         // Hide current slide
         if (this.currentIndex != null) {
@@ -52,6 +52,17 @@ define(['jquery',
 
       stopAutoSliding: function () {
         clearInterval(this.interval);
+      },
+
+      displayImage: function (fileName) {
+        this.stopAutoSliding();
+
+        var li = document.createElement("li");
+        li.className = "bg-slideshow__item";
+        li.style.backgroundImage = "url('../img/" + fileName + "')";
+        this.$el.append(li);
+        this.slides = this.$el.find('.bg-slideshow__item');
+        this.slideTo(this.slides.length - 1);
       }
     });
 

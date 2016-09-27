@@ -44,7 +44,7 @@ define(['jquery',
         tl.to([homeTitleEl, '.home__bars'], .3, {height: 0, margin: 0});
         tl.to(['.home'], .3, {width: 200}, '-=0.1');
         tl.to(['.home'], .5, {x: '300%'}, '+=0.3');
-        tl.to(this.el, .5, {width: '50%'}, '-=0.5');
+        tl.to(this.el, .5, {width: '65%'}, '-=0.5');
 
         function onTimelineCompleted() {
           this.trigger('hidden');

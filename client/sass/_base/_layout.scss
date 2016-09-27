@@ -13,8 +13,7 @@ body {
   color: #fff;
   font-family: $font-primary;
   -webkit-font-smoothing: antialiased;
-  background: url('../img/background-hillary.jpg') center center $brand-primary;
-  background-size: cover;
+  background: $brand-primary;
   padding: 2rem;
 }
 

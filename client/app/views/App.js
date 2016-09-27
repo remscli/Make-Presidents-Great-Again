@@ -3,13 +3,15 @@ define(['jquery',
     'backbone',
     'app/router/router',
     'app/views/Home',
-    'app/views/Build'],
+    'app/views/Build',
+    'app/views/Slideshow'],
   function ($,
             _,
             Backbone,
             Router,
             HomeView,
-            BuildView) {
+            BuildView,
+            SlideshowView) {
 
     var App = Backbone.View.extend({
       el: 'body',
@@ -23,6 +25,7 @@ define(['jquery',
         this.hidden = true;
 
         this.container = this.$("#main");
+        this.slideshow = new SlideshowView();
 
         this.router = new Router();
 

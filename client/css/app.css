@@ -753,7 +753,8 @@ label {
       -ms-flex-align: center;
           align-items: center;
 }
-.home__bars-left, .home__bars-right {
+.home__bars::before, .home__bars::after {
+  content: "";
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;

@@ -11,12 +11,6 @@
   &__drawing {
     height: 100%;
     border: 4px solid $brand-secondary;
-
-    canvas {
-      //background: #fff;
-      width: 100%;
-      height: 100%;
-    }
   }
 
   &__controls {

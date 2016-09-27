@@ -846,10 +846,6 @@ label {
   height: 100%;
   border: 4px solid #eb212e;
 }
-.build__drawing canvas {
-  width: 100%;
-  height: 100%;
-}
 .build__controls {
   text-align: center;
 }

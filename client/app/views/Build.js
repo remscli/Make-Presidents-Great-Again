@@ -2,12 +2,14 @@ define(['jquery',
     'underscore',
     'backbone',
     'app/views/Page',
+    'app/views/Canvas',
     'app/collections/Questions',
     'text!app/templates/build.html'],
   function ($,
             _,
             Backbone,
             Page,
+            Canvas,
             Questions,
             buildTemplate) {
 
@@ -22,7 +24,6 @@ define(['jquery',
         this.template = _.template(buildTemplate);
 
         this.model = new Questions();
-        this.canvas = this.$el.find("#drawingCanvas");
 
         this.remainingQuestions = null;
         this.selectedAnswers = [];
@@ -45,6 +46,8 @@ define(['jquery',
       },
 
       shown: function () {
+        this.canvas = new Canvas({el: "#drawingCanvas"});
+
         var tl = new TimelineMax();
         tl.fromTo(this.questionParts[0], .4, {opacity: 0, y: 20}, {opacity: 1, y: 0});
         tl.fromTo(this.questionParts[1], .5, {opacity: 0, y: 20}, {opacity: 1, y: 0}, '-=0.2');

@@ -32274,6 +32274,3 @@ global.PIXI = core;
 
 },{"./accessibility":76,"./core":97,"./deprecation":154,"./extract":156,"./extras":164,"./filters":175,"./interaction":180,"./loaders":183,"./mesh":191,"./particles":194,"./polyfill":200,"./prepare":203}]},{},[205])(205)
 });
-
-
-//# sourceMappingURL=pixi.js.map

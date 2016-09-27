@@ -22,6 +22,7 @@ define(['jquery',
         this.template = _.template(buildTemplate);
 
         this.model = new Questions();
+        this.canvas = this.$el.find("#drawingCanvas");
 
         this.remainingQuestions = null;
         this.selectedAnswers = [];

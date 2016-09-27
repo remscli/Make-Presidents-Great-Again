@@ -11,7 +11,7 @@ define(['jquery',
       el: '#backgroundSlideshow',
 
       initialize: function () {
-        this.duration = 4; // In seconds
+        this.duration = 5; // In seconds
         this.currentIndex = null;
         this.slides = this.$el.find('.bg-slideshow__item');
 

@@ -2,12 +2,14 @@ define(['jquery',
         'underscore',
         'backbone',
         'app/router/router',
-        'app/views/Home'],
+        'app/views/Home',
+        'app/views/Build'],
         function($,
           _,
           Backbone,
           Router,
-          HomeView) {
+          HomeView,
+          BuildView) {
 
   var App = Backbone.View.extend({
     el: 'body',
@@ -33,6 +35,9 @@ define(['jquery',
       // Home
       this.listenTo(this.router, 'home', this.goHome);
 
+      // Build
+      this.listenTo(this.router, 'build', this.goBuild);
+
       this.router.start();
     },
 
@@ -49,6 +54,15 @@ define(['jquery',
         },
         method: function () {
           this.currentPage = new HomeView();
+        }
+      });
+    },
+
+    goBuild: function(){
+      this.goTo(null, {
+        url: '/build',
+        method: function () {
+          this.currentPage = new BuildView();
         }
       });
     },

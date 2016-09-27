@@ -5,6 +5,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     /** Routes **/
     routes: {
       '': 'home',
+      'build': 'build'
     },
 
     /** Start **/
@@ -17,6 +18,10 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     home: function() {
       this.trigger('home');
     },
+
+    build: function() {
+      this.trigger('build');
+    }
   });
 
   return Router;

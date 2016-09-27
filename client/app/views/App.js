@@ -62,6 +62,7 @@ define(['jquery',
       },
 
       goBuild: function () {
+        this.slideshow.stopAutoSliding();
         this.goTo(null, {
           url: '/build',
           method: function () {

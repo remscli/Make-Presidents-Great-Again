@@ -46,8 +46,8 @@ sub, sup {
 
 
 .main {
+  position: relative;
   padding: 2rem;
-  border: 4px solid $brand-secondary;
 }
 html,
 body,

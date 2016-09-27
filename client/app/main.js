@@ -5,7 +5,7 @@ requirejs.config({
     underscore: 'lib/underscore.min',
     jquery: 'lib/jquery.min',
     backbone: 'lib/backbone.min',
-    TweenMax: 'lib/TweenMax.min',
+    TweenMax: 'lib/TweenMax',
     pixi: 'lib/pixi',
     app: 'app'
   },

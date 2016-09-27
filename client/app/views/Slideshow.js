@@ -17,7 +17,8 @@ define(['jquery',
 
         this.slideTo(0);
 
-        setInterval(this.changeSlide.bind(this), this.duration * 1000);
+        // Init auto sliding
+        this.interval = setInterval(this.changeSlide.bind(this), this.duration * 1000);
       },
 
       slideTo: function (newIndex) {
@@ -47,6 +48,10 @@ define(['jquery',
         }
 
         this.slideTo(index);
+      },
+
+      stopAutoSliding: function () {
+        clearInterval(this.interval);
       }
     });
 

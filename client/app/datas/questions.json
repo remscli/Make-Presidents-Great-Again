@@ -1,0 +1,68 @@
+[
+  {
+    "questionBody": "immigration",
+    "positiveAnswer": {
+      "imageFileName": "drone-war",
+      "value": "clinton"
+    },
+    "negativeAnswer": {
+      "imageFileName": "wall",
+      "value": "trump"
+    }
+  },
+  {
+    "questionBody": "free gun ownership",
+    "positiveAnswer": {
+      "imageFileName": "weapon",
+      "value": "trump"
+    },
+    "negativeAnswer": {
+      "imageFileName": "",
+      "value": "clinton"
+    }
+  },
+  {
+    "questionBody": "gay marriage",
+    "positiveAnswer": {
+      "imageFileName": "rainbow-flag",
+      "value": "clinton"
+    },
+    "negativeAnswer": {
+      "imageFileName": "american-flag",
+      "value": "trump"
+    }
+  },
+  {
+    "questionBody": "marijuana legalization",
+    "positiveAnswer": {
+      "imageFileName": "blunt",
+      "value": "clinton"
+    },
+    "negativeAnswer": {
+      "imageFileName": "",
+      "value": "trump"
+    }
+  },
+  {
+    "questionBody": "banning abortion",
+    "positiveAnswer": {
+      "imageFileName": "babies-crying",
+      "value": "trump"
+    },
+    "negativeAnswer": {
+      "imageFileName": "",
+      "value": "clinton"
+    }
+  },
+  {
+    "questionBody": "climate change fight",
+    "positiveAnswer": {
+      "imageFileName": "ecologic-landscape",
+      "value": "clinton"
+    },
+    "negativeAnswer": {
+      "imageFileName": "apocalyptic-landscape",
+      "value": "trump"
+    }
+  }
+]

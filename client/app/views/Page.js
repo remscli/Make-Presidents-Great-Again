@@ -1,46 +1,51 @@
-define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
+define(['jquery',
+    'underscore',
+    'backbone'],
+  function ($,
+            _,
+            Backbone) {
 
-  var PageView = Backbone.View.extend({
-    tagName: 'section',
-    className: 'page',
+    var PageView = Backbone.View.extend({
+      tagName: 'section',
+      className: 'page',
 
-    initialize: function() {
-      this.isReady = false;
-      this.render();
-    },
+      initialize: function () {
+        this.isReady = false;
+        this.render();
+      },
 
-    hide: function() {
-      this.trigger('hidden');
-    },
+      hide: function () {
+        this.trigger('hidden');
+      },
 
-    ready: function() {
-      this.isReady = true;
-      this.trigger('ready');
-    },
+      ready: function () {
+        this.isReady = true;
+        this.trigger('ready');
+      },
 
-    added: function() {
-      // After add callback
-    },
+      added: function () {
+        // After add callback
+      },
 
-    shown: function() {
-      // After show callback
-    },
+      shown: function () {
+        // After show callback
+      },
 
-    render: function() {
-      this.$el.html(this.template);
+      render: function () {
+        this.$el.html(this.template);
 
-      this.ready();
-    },
+        this.ready();
+      },
 
-    destroy: function() {
-      this.undelegateEvents();
-      this.$el.removeData().unbind();
+      destroy: function () {
+        this.undelegateEvents();
+        this.$el.removeData().unbind();
 
-      this.remove();
-      Backbone.View.prototype.remove.call(this);
-    }
+        this.remove();
+        Backbone.View.prototype.remove.call(this);
+      }
 
+    });
+
+    return PageView;
   });
-
-  return PageView;
-});

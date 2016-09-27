@@ -1,31 +1,75 @@
 define(['jquery',
-        'underscore',
-        'backbone',
-        'app/views/Page',
-        'text!app/templates/build.html'],
-        function($,
-          _,
-          Backbone,
-          Page,
-          buildTemplate) {
+    'underscore',
+    'backbone',
+    'app/views/Page',
+    'app/collections/Questions',
+    'text!app/templates/build.html'],
+  function ($,
+            _,
+            Backbone,
+            Page,
+            Questions,
+            buildTemplate) {
 
-  var BuildView = Page.extend({
-    id: 'page-build',
+    var BuildView = Page.extend({
+      id: 'page-build',
 
-    events: {},
+      events: {
+        'click .build__button': 'answerButtonClicked'
+      },
 
-    initialize: function (options) {
-      this.template = _.template( buildTemplate );
-      this.render();
-    },
+      initialize: function (options) {
+        this.template = _.template(buildTemplate);
 
-    render: function () {
+        this.model = new Questions();
 
-      this.$el.html(this.template());
+        this.remainingQuestions = null;
+        this.selectedAnswers = [];
+        this.currentQuestion = null;
 
-      this.ready();
-    }
+        this.render();
+        this.loadQuestions();
+      },
+
+      render: function () {
+
+        this.$el.html(this.template());
+
+        this.ready();
+      },
+
+      loadQuestions: function () {
+        this.model.fetch({
+          success: questionsLoaded.bind(this)
+        });
+
+        function questionsLoaded() {
+          this.remainingQuestions = this.model;
+
+          this.pickCurrentQuestion();
+        }
+      },
+
+      pickCurrentQuestion: function () {
+        if (this.remainingQuestions.length < 1) {
+          console.log("END");
+          console.log(this.selectedAnswers);
+        }
+
+        this.currentQuestion = this.remainingQuestions.shift();
+
+        this.$el.find("#questionBody").text(this.currentQuestion.get('questionBody'));
+      },
+
+      answerButtonClicked: function (e) {
+        var answerType = e.currentTarget.dataset.answer;
+        var answer = this.currentQuestion.get([answerType + 'Answer']);
+
+        this.selectedAnswers.push(answer);
+
+        this.pickCurrentQuestion();
+      }
+    });
+
+    return BuildView;
   });
-
-  return BuildView;
-});

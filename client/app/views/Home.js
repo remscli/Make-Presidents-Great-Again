@@ -1,31 +1,31 @@
 define(['jquery',
-        'underscore',
-        'backbone',
-        'app/views/Page',
-        'text!app/templates/home.html'],
-        function($,
-          _,
-          Backbone,
-          Page,
-          homeTemplate) {
+    'underscore',
+    'backbone',
+    'app/views/Page',
+    'text!app/templates/home.html'],
+  function ($,
+            _,
+            Backbone,
+            Page,
+            homeTemplate) {
 
-  var HomeView = Page.extend({
-    id: 'page-home',
+    var HomeView = Page.extend({
+      id: 'page-home',
 
-    events: {},
+      events: {},
 
-    initialize: function (options) {
-      this.template = _.template( homeTemplate );
-      this.render();
-    },
+      initialize: function (options) {
+        this.template = _.template(homeTemplate);
+        this.render();
+      },
 
-    render: function () {
+      render: function () {
 
-      this.$el.html(this.template());
+        this.$el.html(this.template());
 
-      this.ready();
-    }
+        this.ready();
+      }
+    });
+
+    return HomeView;
   });
-
-  return HomeView;
-});

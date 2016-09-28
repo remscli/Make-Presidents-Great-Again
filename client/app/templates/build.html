@@ -1,8 +1,25 @@
 <div class="build">
-    <div class="build__drawing" id="drawingCanvas"></div>
+    <div class="build__left" id="drawingCanvas"></div>
 
-    <div class="build__controls">
-        <h2 class="question">
+    <div class="build__right">
+        <div class="build__end-message">
+            <h2 class="question" id="endMessage">
+                <small class="question__head">Your custom</small>
+                <span class="question__body">great president</span>
+                <small class="question__foot">is ready !</small>
+            </h2>
+
+            <a href="#" class="btn btn--lg btn--twitter">
+                <img src="img/twitter.svg" alt="Twitter" />
+                Share on twitter
+            </a>
+            <p>
+                or share your custom link :<br>
+                <a href="#" target="_blank" class="m-t-xs inline-block font-bold">http://<%= window.location.hostname %>/p/83G83GR3HR</a>
+            </p>
+        </div>
+
+        <h2 class="question" id="question">
             <small class="question__head">Is</small>
             <span class="question__body" id="questionBody"></span>
             <small class="question__foot">a good thing ?</small>

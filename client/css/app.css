@@ -408,7 +408,7 @@ h1 {
 
 p {
   font-size: 1.4rem;
-  color: #505976;
+  color: #b3b8cb;
   line-height: 1.4em;
 }
 
@@ -531,6 +531,14 @@ body,
 
 .hidden {
   display: none !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.m-t-xs {
+  margin-top: 5px !important;
 }
 
 /*------------------------------------*\
@@ -669,6 +677,7 @@ label {
     #Buttons
 \*------------------------------------*/
 .btn {
+  display: inline-block;
   position: relative;
   padding: 1rem 2.5rem;
   background: #272b39;
@@ -682,6 +691,9 @@ label {
 }
 .btn:focus {
   outline: none;
+}
+.btn--lg {
+  padding: 2rem 3.5rem;
 }
 .btn--primary {
   border: 2px solid #eb212e;
@@ -715,6 +727,14 @@ label {
 }
 .btn--danger {
   background: #eb212e;
+}
+.btn--twitter {
+  background: #00aced;
+}
+.btn--twitter img {
+  width: 25px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 .bg-slideshow {
@@ -845,25 +865,26 @@ label {
       -ms-flex-align: center;
           align-items: center;
 }
-.build__drawing, .build__controls {
+.build__left, .build__right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
-.build__drawing {
+.build__left {
   position: relative;
   height: 100%;
+  z-index: 2;
 }
-.build__drawing canvas {
+.build__left canvas {
   position: relative;
   z-index: 2;
 }
-.build__drawing canvas, .build__drawing::before, .build__drawing::after {
+.build__left canvas, .build__left::before, .build__left::after {
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 10px #272b39;
 }
-.build__drawing::before, .build__drawing::after {
+.build__left::before, .build__left::after {
   content: '';
   display: block;
   width: 100%;
@@ -876,25 +897,33 @@ label {
   -webkit-transition: all .3s ease;
           transition: all .3s ease;
 }
-.build__drawing::before {
+.build__left::before {
   z-index: 0;
   bottom: -10px;
   -webkit-transition-delay: .6s;
           transition-delay: .6s;
 }
-.build__drawing::after {
+.build__left::after {
   z-index: 1;
   bottom: -5px;
   -webkit-transition-delay: .3s;
           transition-delay: .3s;
 }
-.build__drawing.transition-end::before, .build__drawing.transition-end::after {
+.build__left.transition-end::before, .build__left.transition-end::after {
   opacity: 1;
   -webkit-transform: none;
           transform: none;
 }
-.build__controls {
+.build__right {
+  position: relative;
   text-align: center;
+}
+.build__end-message {
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0;
 }
 .build__buttons {
   display: -webkit-box;

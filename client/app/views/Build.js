@@ -37,7 +37,7 @@ define(['jquery',
 
         this.$el.html(this.template());
 
-        this.questionParts = this.$el.find('.question').children();
+        this.questionParts = this.$el.find('#question').children();
         TweenMax.set(this.questionParts, {opacity: 0});
 
         this.questionBodyEl = this.$el.find("#questionBody");
@@ -93,10 +93,20 @@ define(['jquery',
 
         this.canvas.drawImage('img/' + answer.imageFileName + '.png', { x: answer.imagePosX, y: answer.imagePosY });
 
-        if (this.remainingQuestions.length) {
+        if (this.remainingQuestions.length > 8) {
           TweenMax.to(this.questionBodyEl, .3, {scale: 0.8, opacity: 0, onComplete: this.pickCurrentQuestion.bind(this, true)});
         } else {
-          alert('end');
+          var tl = new TimelineMax();
+
+          tl.to(this.questionParts[0], .3, {opacity: 0, y: 20});
+          tl.to(this.questionParts[1], .3, {opacity: 0, y: 20}, '-=0.15');
+          tl.to(this.questionParts[2], .3, {opacity: 0, y: 20}, '-=0.15');
+
+          tl.to('.build__button.btn--danger', .2, {opacity: 0, scale: 0.2, y: 100}, '-=0.2');
+          tl.to('.build__button.btn--success', .2, {opacity: 0, scale: 0.2, y: 100}, '-=0.1');
+
+          tl.set('.build__end-message', {opacity: 1});
+          tl.to('.build__left', .35, {x: '100%'}, '+=0.7');
         }
       }
     });

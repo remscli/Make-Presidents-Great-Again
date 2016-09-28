@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 .btn {
+  display: inline-block;
   position: relative;
   padding: 1rem 2.5rem;
   background: $color-dark;
@@ -15,6 +16,10 @@
 
   &:focus {
     outline: none;
+  }
+
+  &--lg {
+    padding: 2rem 3.5rem;
   }
 
   &--primary {
@@ -57,5 +62,15 @@
 
   &--danger {
     background: $color-danger;
+  }
+
+  &--twitter {
+    background: #00aced;
+
+    img {
+      width: 25px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
   }
 }

@@ -4,14 +4,15 @@
   display: flex;
   align-items: center;
 
-  &__drawing,
-  &__controls {
+  &__left,
+  &__right {
     flex: 1;
   }
 
-  &__drawing {
+  &__left {
     position: relative;
     height: 100%;
+    z-index: 2;
 
     canvas {
       position: relative;
@@ -59,8 +60,16 @@
     }
   }
 
-  &__controls {
+  &__right {
+    position: relative;
     text-align: center;
+  }
+
+  &__end-message {
+    position: absolute;
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
   }
 
   &__buttons {

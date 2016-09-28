@@ -37,8 +37,19 @@ define(['jquery',
         this.renderer.render(this.stage);
       },
 
+      clear: function () {
+        while (this.stage.children[0]) {
+          this.stage.removeChild(this.stage.children[0]);
+        }
+        this.update();
+      },
+
       drawImage: function (imagePath, originalPos) {
-        PIXI.loader.add(imagePath).load(imageHasLoaded.bind(this));
+        if (PIXI.loader.resources[imagePath]) {
+          imageHasLoaded.call(this);
+        } else {
+          PIXI.loader.add(imagePath).load(imageHasLoaded.bind(this));
+        }
 
         function imageHasLoaded() {
           var image = new PIXI.Sprite( PIXI.loader.resources[imagePath].texture );

@@ -18,7 +18,8 @@ define(['jquery',
 
       events: {
         'click .build__button': 'answerButtonClicked',
-        'click #nameButton': 'onNameButtonClick'
+        'click #nameButton': 'onNameButtonClick',
+        'click #reset': 'onResetButtonClick'
       },
 
       initialize: function (options) {
@@ -70,7 +71,7 @@ define(['jquery',
         });
 
         function questionsLoaded() {
-          this.remainingQuestions = this.model;
+          this.remainingQuestions = this.model.clone();
 
           this.pickCurrentQuestion(false);
         }
@@ -96,7 +97,8 @@ define(['jquery',
 
         this.canvas.drawImage('img/' + answer.imageFileName + '.png', { x: answer.imagePosX, y: answer.imagePosY });
 
-        if (this.remainingQuestions.length < 7) {
+        TweenMax.to('#reset', 1, {opacity: 1});
+        if (this.remainingQuestions.length) {
           TweenMax.to(this.questionBodyEl, .3, {scale: 0.8, opacity: 0, onComplete: this.pickCurrentQuestion.bind(this, true)});
         } else {
           this.hideQuestions();
@@ -134,6 +136,13 @@ define(['jquery',
         TweenMax.set('.build__end-message', {opacity: 1});
         TweenMax.to('#drawingCanvas', .35, {x: '100%', delay: .3});
       },
+
+      onResetButtonClick: function () {
+        this.selectedAnswers = [];
+        this.canvas.clear();
+        this.remainingQuestions = this.model.clone();
+        this.pickCurrentQuestion(false);
+      }
     });
 
     return BuildView;

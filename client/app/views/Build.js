@@ -46,15 +46,18 @@ define(['jquery',
       },
 
       shown: function () {
-        this.canvas = new Canvas({el: "#drawingCanvas"});
-
-        var tl = new TimelineMax();
+        var tl = new TimelineMax({onComplete: showAnimEnded.bind(this)});
         tl.fromTo(this.questionParts[0], .4, {opacity: 0, y: 20}, {opacity: 1, y: 0});
         tl.fromTo(this.questionParts[1], .5, {opacity: 0, y: 20}, {opacity: 1, y: 0}, '-=0.2');
         tl.fromTo(this.questionParts[2], .4, {opacity: 0, y: 20}, {opacity: 1, y: 0}, '-=0.2');
 
         tl.fromTo('.build__button.btn--danger', .2, {opacity: 0, scale: 0.2, y: 100}, {opacity: 1, scale: 1, y: 0, ease: Elastic.easeOut.config(1, 0.4)});
         tl.fromTo('.build__button.btn--success', .2, {opacity: 0, scale: 0.2, y: 100}, {opacity: 1, scale: 1, y: 0, ease: Elastic.easeOut.config(1, 0.4)});
+
+        function showAnimEnded() {
+          this.canvas = new Canvas({el: "#drawingCanvas"});
+          this.canvas.drawImage('img/trump.png', { x: 336, y: 191 });
+        }
       },
 
       loadQuestions: function () {
@@ -97,6 +100,8 @@ define(['jquery',
         this.selectedAnswers.push(answer);
 
         this.pickCurrentQuestion(true);
+
+        this.canvas.drawImage('img/glasses.png', { x: 408, y: 459 });
       }
     });
 

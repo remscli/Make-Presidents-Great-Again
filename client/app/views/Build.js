@@ -4,6 +4,7 @@ define(['jquery',
     'app/views/Page',
     'app/views/Canvas',
     'app/collections/Questions',
+    'app/models/President',
     'text!app/templates/build.html'],
   function ($,
             _,
@@ -11,6 +12,7 @@ define(['jquery',
             Page,
             Canvas,
             Questions,
+            President,
             buildTemplate) {
 
     var BuildView = Page.extend({
@@ -93,7 +95,7 @@ define(['jquery',
         var answerType = e.currentTarget.dataset.answer;
         var answer = this.currentQuestion.get([answerType + 'Answer']);
 
-        this.selectedAnswers.push(answer);
+        this.selectedAnswers.push(answer.imageFileName);
 
         this.canvas.drawImage('img/' + answer.imageFileName + '.png', { x: answer.imagePosX, y: answer.imagePosY });
 
@@ -128,7 +130,20 @@ define(['jquery',
 
         this.presidentName = name;
 
-        this.slideDrawing();
+        var president = new President({
+          name: this.presidentName,
+          answers: this.selectedAnswers
+        });
+
+        president.save(null, {success: onSaveSuccess.bind(this), error: function (err) {
+          console.log(err);
+        }});
+
+        function onSaveSuccess(president) {
+          this.president = president;
+          console.log(president);
+          this.slideDrawing();
+        }
       },
 
       slideDrawing: function () {

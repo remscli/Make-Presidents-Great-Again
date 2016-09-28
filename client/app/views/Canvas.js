@@ -19,10 +19,13 @@ define(['jquery',
         this.offsetY = (this.height - (this.originalSceneSize * this.scaleFactor)) / 2;
 
         // Create the renderer
-        this.renderer = PIXI.autoDetectRenderer(this.width, this.height, {transparent: true});
+        this.renderer = PIXI.autoDetectRenderer(this.width, this.height, {transparent: true, resolution: window.devicePixelRatio});
 
         // Add the canvas to the HTML document
         this.el.appendChild(this.renderer.view);
+
+        $(this.renderer.view).height(this.height);
+        $(this.renderer.view).width(this.width);
 
         // Create a container object
         this.stage = new PIXI.Container();

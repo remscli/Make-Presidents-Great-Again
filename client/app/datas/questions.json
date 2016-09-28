@@ -1,12 +1,61 @@
 [
   {
-    "questionBody": "immigration",
+    "questionBody": "a woman president",
     "positiveAnswer": {
-      "imageFileName": "drone-war",
+      "imageFileName": "hillary-body",
+      "imagePosX": 377,
+      "imagePosY": 333,
       "value": "clinton"
     },
     "negativeAnswer": {
-      "imageFileName": "wall",
+      "imageFileName": "trump-body",
+      "imagePosX": 282,
+      "imagePosY": 333,
+      "value": "trump"
+    }
+  },
+  {
+    "questionBody": "a hairy president",
+    "positiveAnswer": {
+      "imageFileName": "clinton-hair",
+      "imagePosX": 396,
+      "imagePosY": 250,
+      "value": "clinton"
+    },
+    "negativeAnswer": {
+      "imageFileName": "trump-hair",
+      "imagePosX": 415,
+      "imagePosY": 316,
+      "value": "trump"
+    }
+  },
+  {
+    "questionBody": "a fun president",
+    "positiveAnswer": {
+      "imageFileName": "clinton-mouth-nose",
+      "imagePosX": 469,
+      "imagePosY": 442,
+      "value": "clinton"
+    },
+    "negativeAnswer": {
+      "imageFileName": "trump-mouth-nose",
+      "imagePosX": 474,
+      "imagePosY": 423,
+      "value": "trump"
+    }
+  },
+  {
+    "questionBody": "immigration",
+    "positiveAnswer": {
+      "imageFileName": "drone-war",
+      "imagePosX": 0,
+      "imagePosY": 0,
+      "value": "clinton"
+    },
+    "negativeAnswer": {
+      "imageFileName": "glasses",
+      "imagePosX": 408,
+      "imagePosY": 459,
       "value": "trump"
     }
   },
@@ -14,10 +63,14 @@
     "questionBody": "free gun ownership",
     "positiveAnswer": {
       "imageFileName": "weapon",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "trump"
     },
     "negativeAnswer": {
       "imageFileName": "",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "clinton"
     }
   },
@@ -25,10 +78,14 @@
     "questionBody": "gay marriage",
     "positiveAnswer": {
       "imageFileName": "rainbow-flag",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "clinton"
     },
     "negativeAnswer": {
       "imageFileName": "american-flag",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "trump"
     }
   },
@@ -36,10 +93,14 @@
     "questionBody": "marijuana legalization",
     "positiveAnswer": {
       "imageFileName": "blunt",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "clinton"
     },
     "negativeAnswer": {
       "imageFileName": "",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "trump"
     }
   },
@@ -47,10 +108,14 @@
     "questionBody": "banning abortion",
     "positiveAnswer": {
       "imageFileName": "babies-crying",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "trump"
     },
     "negativeAnswer": {
       "imageFileName": "",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "clinton"
     }
   },
@@ -58,10 +123,14 @@
     "questionBody": "climate change fight",
     "positiveAnswer": {
       "imageFileName": "ecologic-landscape",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "clinton"
     },
     "negativeAnswer": {
       "imageFileName": "apocalyptic-landscape",
+      "imagePosX": 0,
+      "imagePosY": 0,
       "value": "trump"
     }
   }

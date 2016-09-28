@@ -56,7 +56,7 @@ define(['jquery',
 
         function showAnimEnded() {
           this.canvas = new Canvas({el: "#drawingCanvas"});
-          this.canvas.drawImage('img/trump.png', { x: 336, y: 191 });
+          // this.canvas.drawImage('img/trump.png', { x: 336, y: 191 });
         }
       },
 
@@ -73,23 +73,14 @@ define(['jquery',
       },
 
       pickCurrentQuestion: function (shouldAnimate) {
-        if (this.remainingQuestions.length < 1) {
-          console.log("END");
-          console.log(this.selectedAnswers);
-        }
+        if (this.remainingQuestions.length < 1) return;
 
         this.currentQuestion = this.remainingQuestions.shift();
 
-        if (shouldAnimate) {
-          var tl = new TimelineMax();
-          tl.to(this.questionBodyEl, .3, {scale: 0.8, opacity: 0, onComplete: updateText.bind(this)});
-          tl.to(this.questionBodyEl, .3, {scale: 1, opacity: 1});
-        } else {
-          updateText.call(this);
-        }
+        this.questionBodyEl.text(this.currentQuestion.get('questionBody'));
 
-        function updateText() {
-          this.questionBodyEl.text(this.currentQuestion.get('questionBody'));
+        if (shouldAnimate) {
+          TweenMax.to(this.questionBodyEl, .3, {scale: 1, opacity: 1});
         }
       },
 
@@ -99,9 +90,13 @@ define(['jquery',
 
         this.selectedAnswers.push(answer);
 
-        this.pickCurrentQuestion(true);
+        this.canvas.drawImage('img/' + answer.imageFileName + '.png', { x: answer.imagePosX, y: answer.imagePosY });
 
-        this.canvas.drawImage('img/glasses.png', { x: 408, y: 459 });
+        if (this.remainingQuestions.length) {
+          TweenMax.to(this.questionBodyEl, .3, {scale: 0.8, opacity: 0, onComplete: this.pickCurrentQuestion.bind(this, true)});
+        } else {
+          alert('end');
+        }
       }
     });
 

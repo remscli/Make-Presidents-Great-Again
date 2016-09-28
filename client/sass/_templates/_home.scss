@@ -4,11 +4,17 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-
   position: relative;
-  width: 100%;
-  overflow: hidden;
+}
+
+.home-border {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   border: 4px solid $brand-secondary;
+  pointer-events: none;
 }
 
 .home {

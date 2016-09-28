@@ -39,12 +39,11 @@ define(['jquery',
           $(this).height($(this).height());
         });
 
-        tl.to([homeStarsEl, homeButtonWrpEl], .25, {opacity: 0});
-        tl.to([homeStarsEl, homeButtonWrpEl], .3, {width: 0, padding: 0}, .2);
+        tl.to('.home-border', .25, {opacity: 0});
+        tl.to([homeStarsEl, homeButtonWrpEl], .25, {opacity: 0}, 0);
+        tl.to([homeStarsEl, homeButtonWrpEl], .3, {width: 0, padding: 0}, '-=0.05');
         tl.to([homeTitleEl, '.home__bars'], .3, {height: 0, margin: 0});
-        tl.to(['.home'], .3, {width: 200}, '-=0.1');
-        tl.to(['.home'], .5, {x: '-300%'}, '+=0.3');
-        tl.to(this.el, .5, {left: '50%', width: '50%'}, '-=0.5');
+        tl.to(['.home'], .3, {width: '50%'}, '-=0.1');
 
         function onTimelineCompleted() {
           this.trigger('hidden');

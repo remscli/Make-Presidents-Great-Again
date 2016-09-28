@@ -10,8 +10,56 @@
   }
 
   &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
     position: relative;
+    text-align: center;
     height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__end-message {
+    opacity: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__namer {
+    position: absolute;
+    transform: translateX(100%);
+    width: 400px;
+    opacity: 0;
+
+    .title {
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      margin-top: 3rem;
+      background: $brand-secondary;
+    }
+
+    .error {
+      display: none;
+      text-align: right;
+      color: #fff;
+      font-weight: 600;
+      padding: 5px 11px;
+      background: #eb212e;
+    }
+  }
+
+  &__canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
     z-index: 2;
 
     canvas {
@@ -58,18 +106,6 @@
         transform: none;
       }
     }
-  }
-
-  &__right {
-    position: relative;
-    text-align: center;
-  }
-
-  &__end-message {
-    position: absolute;
-    width: 100%;
-    transform: translateX(-100%);
-    opacity: 0;
   }
 
   &__buttons {

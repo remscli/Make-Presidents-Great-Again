@@ -1,12 +1,10 @@
 <div class="build">
-    <div class="build__left" id="drawingCanvas"></div>
-
-    <div class="build__right">
+    <div class="build__left">
         <div class="build__end-message">
-            <h2 class="question" id="endMessage">
-                <small class="question__head">Share your custom</small>
-                <span class="question__body">great president</span>
-                <small class="question__foot">and win the elections!</small>
+            <h2 class="title" id="endMessage">
+                <small class="title__head">Yeah ! Now share your</small>
+                <span class="title__body">great president</span>
+                <small class="title__foot">and win the elections!</small>
             </h2>
 
             <a href="#" class="btn btn--lg btn--twitter">
@@ -18,20 +16,38 @@
                 <a href="#" target="_blank" class="m-t-xs inline-block font-bold">http://<%= window.location.hostname %>/p/83G83GR3HR</a>
             </p>
         </div>
+    </div>
 
-        <h2 class="question" id="question">
-            <small class="question__head">Is</small>
-            <span class="question__body" id="questionBody"></span>
-            <small class="question__foot">a good thing ?</small>
-        </h2>
+    <div class="build__right">
+        <div class="build__namer">
+            <h2 class="title">
+                <small class="title__head">Almost done !</small>
+                <span class="title__body">Give a name</span>
+                <small class="title__foot">to your great president</small>
+            </h2>
 
-        <div class="build__buttons">
-            <button class="build__button btn btn--danger" data-answer="negative">
-                <img src="img/hand.svg" alt="Against">
-            </button>
-            <button class="build__button btn btn--success" data-answer="positive">
-                <img src="img/hand.svg" alt="Pro">
-            </button>
+            <div class="error" id="errorMessage">You must enter a GREAT name ! Looser...</div>
+            <input type="text" id="nameInput" placeholder="Hillary Trump"/>
+            <button class="btn btn--lg" id="nameButton">Valider</button>
+        </div>
+
+        <div class="build__questions">
+            <h2 class="title" id="question">
+                <small class="title__head">Is</small>
+                <span class="title__body" id="questionBody"></span>
+                <small class="title__foot">a good thing ?</small>
+            </h2>
+
+            <div class="build__buttons">
+                <button class="build__button btn btn--danger" data-answer="negative">
+                    <img src="img/hand.svg" alt="Against">
+                </button>
+                <button class="build__button btn btn--success" data-answer="positive">
+                    <img src="img/hand.svg" alt="Pro">
+                </button>
+            </div>
         </div>
     </div>
+
+    <div class="build__canvas-container" id="drawingCanvas"></div>
 </div>

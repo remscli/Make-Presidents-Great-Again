@@ -412,6 +412,23 @@ p {
   line-height: 1.4em;
 }
 
+.title {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  line-height: 2rem;
+  margin-top: 0;
+  margin-bottom: 7rem;
+  overflow: hidden;
+}
+.title__body {
+  margin: 1.3rem 0 1rem 0;
+  display: block;
+}
+.title__head, .title__foot {
+  font-style: italic;
+  font-size: 2rem;
+}
+
 /*------------------------------------*\
     #Layout
 \*------------------------------------*/
@@ -570,44 +587,48 @@ body,
 input[type="email"],
 input[type="password"],
 select {
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 2rem;
   background: none;
-  border: none;
-  border-bottom: 2px solid #9199b4;
   border-radius: 0;
-  padding: .4rem 0;
-  color: #505976;
+}
+.has-error.media-field, input.has-error[type="text"],
+input.has-error[type="email"],
+input.has-error[type="password"],
+select.has-error {
+  border-color: #eb212e;
 }
 .media-field:focus, input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
 select:focus {
   outline: none;
-  border-color: #272b39;
 }
 
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
-  color: #505976;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #505976;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #505976;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: #505976;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 ::-ms-input-placeholder {
   /* Edge */
-  color: #505976;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .media-field {
@@ -684,10 +705,12 @@ label {
   border: none;
   border-radius: 0;
   color: #fff;
-  font-size: 1.5rem;
-  letter-spacing: .05rem;
   -webkit-transition: all .2s ease;
           transition: all .2s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
 }
 .btn:focus {
   outline: none;
@@ -768,23 +791,6 @@ label {
 
 .bg-slideshow__item:nth-child(4) {
   background-image: url("../img/background-hillary-2.jpg");
-}
-
-.question {
-  text-transform: uppercase;
-  font-size: 3.5rem;
-  line-height: 2rem;
-  margin-top: 0;
-  margin-bottom: 7rem;
-  overflow: hidden;
-}
-.question__body {
-  margin: 1.3rem 0 1rem 0;
-  display: block;
-}
-.question__head, .question__foot {
-  font-style: italic;
-  font-size: 2rem;
 }
 
 #page-home {
@@ -871,20 +877,72 @@ label {
           flex: 1;
 }
 .build__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.build__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
+  text-align: center;
   height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.build__end-message {
+  opacity: 0;
+  width: 100%;
+  text-align: center;
+}
+.build__namer {
+  position: absolute;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  width: 400px;
+  opacity: 0;
+}
+.build__namer .title {
+  margin-bottom: 3rem;
+}
+.build__namer .btn {
+  margin-top: 3rem;
+  background: #eb212e;
+}
+.build__namer .error {
+  display: none;
+  text-align: right;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px 11px;
+  background: #eb212e;
+}
+.build__canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
   z-index: 2;
 }
-.build__left canvas {
+.build__canvas-container canvas {
   position: relative;
   z-index: 2;
 }
-.build__left canvas, .build__left::before, .build__left::after {
+.build__canvas-container canvas, .build__canvas-container::before, .build__canvas-container::after {
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 10px #272b39;
 }
-.build__left::before, .build__left::after {
+.build__canvas-container::before, .build__canvas-container::after {
   content: '';
   display: block;
   width: 100%;
@@ -897,33 +955,22 @@ label {
   -webkit-transition: all .3s ease;
           transition: all .3s ease;
 }
-.build__left::before {
+.build__canvas-container::before {
   z-index: 0;
   bottom: -10px;
   -webkit-transition-delay: .6s;
           transition-delay: .6s;
 }
-.build__left::after {
+.build__canvas-container::after {
   z-index: 1;
   bottom: -5px;
   -webkit-transition-delay: .3s;
           transition-delay: .3s;
 }
-.build__left.transition-end::before, .build__left.transition-end::after {
+.build__canvas-container.transition-end::before, .build__canvas-container.transition-end::after {
   opacity: 1;
   -webkit-transform: none;
           transform: none;
-}
-.build__right {
-  position: relative;
-  text-align: center;
-}
-.build__end-message {
-  position: absolute;
-  width: 100%;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-  opacity: 0;
 }
 .build__buttons {
   display: -webkit-box;

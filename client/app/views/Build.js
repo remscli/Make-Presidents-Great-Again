@@ -17,7 +17,8 @@ define(['jquery',
       id: 'page-build',
 
       events: {
-        'click .build__button': 'answerButtonClicked'
+        'click .build__button': 'answerButtonClicked',
+        'click #nameButton': 'onNameButtonClick'
       },
 
       initialize: function (options) {
@@ -41,6 +42,8 @@ define(['jquery',
         TweenMax.set(this.questionParts, {opacity: 0});
 
         this.questionBodyEl = this.$el.find("#questionBody");
+
+        this.nameInput = this.$el.find('#nameInput');
 
         this.ready();
       },
@@ -93,22 +96,44 @@ define(['jquery',
 
         this.canvas.drawImage('img/' + answer.imageFileName + '.png', { x: answer.imagePosX, y: answer.imagePosY });
 
-        if (this.remainingQuestions.length > 8) {
+        if (this.remainingQuestions.length < 7) {
           TweenMax.to(this.questionBodyEl, .3, {scale: 0.8, opacity: 0, onComplete: this.pickCurrentQuestion.bind(this, true)});
         } else {
-          var tl = new TimelineMax();
-
-          tl.to(this.questionParts[0], .3, {opacity: 0, y: 20});
-          tl.to(this.questionParts[1], .3, {opacity: 0, y: 20}, '-=0.15');
-          tl.to(this.questionParts[2], .3, {opacity: 0, y: 20}, '-=0.15');
-
-          tl.to('.build__button.btn--danger', .2, {opacity: 0, scale: 0.2, y: 100}, '-=0.2');
-          tl.to('.build__button.btn--success', .2, {opacity: 0, scale: 0.2, y: 100}, '-=0.1');
-
-          tl.set('.build__end-message', {opacity: 1});
-          tl.to('.build__left', .35, {x: '100%'}, '+=0.7');
+          this.hideQuestions();
         }
-      }
+      },
+
+      hideQuestions: function () {
+        var tl = new TimelineMax({onComplete: onHideCompleted.bind(this)});
+
+        tl.to('.build__questions', .3, {x: '-100%', opacity: 0, ease: Power3.easeInOut}, .2);
+        tl.to('.build__namer', .3, {x: '0%', opacity: 1, ease: Power3.easeInOut}, .2);
+
+        function onHideCompleted() {
+          this.nameInput.focus();
+          $('.build__questions').remove();
+        }
+      },
+
+      onNameButtonClick: function () {
+        var name = this.nameInput.val();
+
+        if (name.length < 3) {
+          this.$el.find('#errorMessage').show();
+          this.nameInput.addClass('has-error');
+          return;
+        }
+
+        this.presidentName = name;
+
+        this.slideDrawing();
+      },
+
+      slideDrawing: function () {
+        this.$el.addClass('build--share');
+        TweenMax.set('.build__end-message', {opacity: 1});
+        TweenMax.to('#drawingCanvas', .35, {x: '100%', delay: .3});
+      },
     });
 
     return BuildView;

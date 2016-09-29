@@ -437,7 +437,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
   font-size: 1.4rem;
   color: #fff;

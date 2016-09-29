@@ -13,12 +13,12 @@
   {
     "questionBody": "a hairy president",
     "positiveAnswer": {
-      "imageFileName": "clinton-hair",
-      "value": "clinton"
-    },
-    "negativeAnswer": {
       "imageFileName": "trump-hair",
       "value": "trump"
+    },
+    "negativeAnswer": {
+      "imageFileName": "clinton-hair",
+      "value": "clinton"
     }
   },
   {

@@ -61,6 +61,8 @@ define(['jquery',
 
         tl.fromTo('.build__button.btn--danger', .2, {opacity: 0, scale: 0.2, y: 100}, {opacity: 1, scale: 1, y: 0, ease: Elastic.easeOut.config(1, 0.4)}, '-=0.2');
         tl.fromTo('.build__button.btn--success', .2, {opacity: 0, scale: 0.2, y: 100}, {opacity: 1, scale: 1, y: 0, ease: Elastic.easeOut.config(1, 0.4)}, '-=0.1');
+
+        tl.to(this.counter, .3, {opacity: 0.7});
       },
 
       loadQuestions: function () {

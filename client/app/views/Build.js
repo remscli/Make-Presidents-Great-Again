@@ -3,7 +3,6 @@ define(['jquery',
     'backbone',
     'app/views/Page',
     'app/views/Canvas',
-    'app/collections/Questions',
     'app/models/President',
     'text!app/templates/build.html'],
   function ($,
@@ -11,7 +10,6 @@ define(['jquery',
             Backbone,
             Page,
             Canvas,
-            Questions,
             President,
             buildTemplate) {
 
@@ -26,8 +24,6 @@ define(['jquery',
 
       initialize: function (options) {
         this.template = _.template(buildTemplate);
-
-        this.model = new Questions();
 
         this.remainingQuestions = null;
         this.selectedAnswers = [];
@@ -57,7 +53,7 @@ define(['jquery',
         var tl = new TimelineMax();
         tl.fromTo('#drawingCanvas canvas', .5, {x: '50%'}, {x: '0%'});
         tl.fromTo('#drawingCanvas canvas', .5, {scaleY: 0.008, scaleX: 0.9}, {scaleY: 1, scaleX: 1, onComplete: function () {
-          $('#drawingCanvas').addClass('transition-end');
+          $('#drawingCanvas').addClass('draw-area--shown');
         }});
         tl.fromTo(this.questionParts[0], .4, {opacity: 0, y: 20}, {opacity: 1, y: 0});
         tl.fromTo(this.questionParts[1], .5, {opacity: 0, y: 20}, {opacity: 1, y: 0}, '-=0.2');
@@ -68,12 +64,14 @@ define(['jquery',
       },
 
       loadQuestions: function () {
-        this.model.fetch({
-          success: questionsLoaded.bind(this)
-        });
+        $.ajax({
+          type: "GET",
+          url: 'app/datas/questions.json'
+        }).done(questionsLoaded.bind(this));
 
-        function questionsLoaded() {
-          this.remainingQuestions = this.model.clone();
+        function questionsLoaded(questions) {
+          this.questions = questions;
+          this.remainingQuestions = questions;
 
           this.pickCurrentQuestion(false);
         }
@@ -84,7 +82,7 @@ define(['jquery',
 
         this.currentQuestion = this.remainingQuestions.shift();
 
-        this.questionBodyEl.text(this.currentQuestion.get('questionBody'));
+        this.questionBodyEl.text(this.currentQuestion.questionBody);
 
         if (shouldAnimate) {
           TweenMax.to(this.questionBodyEl, .3, {scale: 1, opacity: 1});
@@ -93,11 +91,11 @@ define(['jquery',
 
       answerButtonClicked: function (e) {
         var answerType = e.currentTarget.dataset.answer;
-        var answer = this.currentQuestion.get([answerType + 'Answer']);
+        var answer = this.currentQuestion[answerType + 'Answer'];
 
         this.selectedAnswers.push(answer.imageFileName);
 
-        this.canvas.drawImage('img/' + answer.imageFileName + '.png', { x: answer.imagePosX, y: answer.imagePosY });
+        this.canvas.drawImage(answer.imageFileName);
 
         TweenMax.to('#reset', 1, {opacity: 1});
         if (this.remainingQuestions.length) {
@@ -161,7 +159,7 @@ define(['jquery',
       onResetButtonClick: function () {
         this.selectedAnswers = [];
         this.canvas.clear();
-        this.remainingQuestions = this.model.clone();
+        this.remainingQuestions = this.questions;
         this.pickCurrentQuestion(false);
       }
     });

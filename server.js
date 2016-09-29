@@ -68,12 +68,14 @@ apiRouter.post('/presidents', function (req, res) {
 });
 
 apiRouter.get('/presidents/:token', function (req, res) {
-  President.find({token: req.params.token}, function (err, president) {
+  President.find({token: req.params.token}, function (err, presidents) {
       if (err){
         return res.status(403).json({
           message: err
         });
       }
+
+      var president = presidents[0];
 
       res.status(200).json(president);
     });

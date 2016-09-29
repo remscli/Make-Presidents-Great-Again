@@ -1,0 +1,32 @@
+[
+  {
+    "fileName": "clinton-body",
+    "x": 377,
+    "y": 333
+  },
+  {
+    "fileName": "trump-body",
+    "x": 282,
+    "y": 333
+  },
+  {
+    "fileName": "clinton-hair",
+    "x": 396,
+    "y": 250
+  },
+  {
+    "fileName": "trump-hair",
+    "x": 415,
+    "y": 316
+  },
+  {
+    "fileName": "clinton-mouth-nose",
+    "x": 469,
+    "y": 442
+  },
+  {
+    "fileName": "trump-mouth-nose",
+    "x": 474,
+    "y": 423
+  }
+]

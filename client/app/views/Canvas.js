@@ -31,6 +31,16 @@ define(['jquery',
         this.stage = new PIXI.Container();
 
         this.update();
+
+        // Ask for images positions
+        $.ajax({
+          type: "GET",
+          url: 'app/datas/images.json'
+        }).done(imagesDataLoaded.bind(this));
+
+        function imagesDataLoaded (images) {
+          this.images = images;
+        }
       },
 
       update: function () {
@@ -44,7 +54,8 @@ define(['jquery',
         this.update();
       },
 
-      drawImage: function (imagePath, originalPos) {
+      drawImage: function (imageFileName) {
+        var imagePath = this.getImagePath(imageFileName);
         if (PIXI.loader.resources[imagePath]) {
           imageHasLoaded.call(this);
         } else {
@@ -52,17 +63,26 @@ define(['jquery',
         }
 
         function imageHasLoaded() {
+          // Retrieve image position
+          var position = _.find(this.images, function (image) {
+            return image.fileName == imageFileName
+          });
+
           var image = new PIXI.Sprite( PIXI.loader.resources[imagePath].texture );
 
           image.width = image.width * this.scaleFactor;
           image.height = image.height * this.scaleFactor;
-          image.position.x = this.offsetX + (originalPos.x * this.scaleFactor);
-          image.position.y = this.offsetY + (originalPos.y * this.scaleFactor);
+          image.position.x = this.offsetX + (position.x * this.scaleFactor);
+          image.position.y = this.offsetY + (position.y * this.scaleFactor);
 
           this.stage.addChild(image);
 
           this.update();
         }
+      },
+
+      getImagePath: function (imageFileName) {
+        return 'img/' + imageFileName + '.png';
       }
     });
 

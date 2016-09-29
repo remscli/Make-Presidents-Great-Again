@@ -6,7 +6,7 @@ define(['jquery',
             Backbone) {
 
     var President = Backbone.Model.extend({
-      url: '/api/presidents',
+      urlRoot: '/api/presidents',
       defaults: {
         'name': null,
         'token': null,

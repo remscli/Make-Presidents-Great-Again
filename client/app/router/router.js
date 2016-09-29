@@ -5,12 +5,12 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     /** Routes **/
     routes: {
       '': 'home',
-      'build': 'build'
+      'build': 'build',
+      'p/:token': 'show'
     },
 
     /** Start **/
     start: function() {
-      /** Démarre l'écoute des url **/
       Backbone.history.start({pushState: true});
     },
 
@@ -21,6 +21,10 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
 
     build: function() {
       this.trigger('build');
+    },
+
+    show: function(token) {
+      this.trigger('show', token);
     }
   });
 

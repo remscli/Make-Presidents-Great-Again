@@ -53,7 +53,7 @@ apiRouter.post('/presidents', function (req, res) {
   var president = new President();
 
   president.name = req.body.name;
-  president.answers = req.body.answers;
+  president.drawingParts = req.body.drawingParts;
 
   // save the president and check for errors
   president.save(function(err, president) {

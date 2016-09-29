@@ -35,11 +35,11 @@ define(['jquery',
         // Ask for images positions
         $.ajax({
           type: "GET",
-          url: 'app/datas/images.json'
-        }).done(imagesDataLoaded.bind(this));
+          url: 'app/datas/drawing-parts.json'
+        }).done(drawingPartsLoaded.bind(this));
 
-        function imagesDataLoaded (images) {
-          this.images = images;
+        function drawingPartsLoaded (drawingParts) {
+          this.drawingParts = drawingParts;
         }
       },
 
@@ -64,9 +64,11 @@ define(['jquery',
 
         function imageHasLoaded() {
           // Retrieve image position
-          var position = _.find(this.images, function (image) {
-            return image.fileName == imageFileName
+          var position = _.find(this.drawingParts, function (drawingPart) {
+            return drawingPart.fileName == imageFileName
           });
+
+          if (!position) return;
 
           var image = new PIXI.Sprite( PIXI.loader.resources[imagePath].texture );
 

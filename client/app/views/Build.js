@@ -93,7 +93,7 @@ define(['jquery',
         var answerType = e.currentTarget.dataset.answer;
         var answer = this.currentQuestion[answerType + 'Answer'];
 
-        this.selectedAnswers.push(answer.imageFileName);
+        this.selectedAnswers.push(answer);
 
         this.canvas.drawImage(answer.imageFileName);
 
@@ -130,7 +130,9 @@ define(['jquery',
 
         var president = new President({
           name: this.presidentName,
-          answers: this.selectedAnswers
+          drawingParts: this.selectedAnswers.map(function (answer) {
+            return answer.imageFileName
+          })
         });
 
         president.save(null, {success: onSaveSuccess.bind(this), error: function (err) {

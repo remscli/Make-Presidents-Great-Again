@@ -26,11 +26,11 @@ define(['jquery',
       },
 
       render: function () {
-        this.$el.html(this.template());
+        this.$el.html(this.template({president: this.model}));
 
         this.canvas = new Canvas({el: "#drawingCanvas"});
 
-        this.model.get('answers').forEach(function (drawingPart) {
+        this.model.get('drawingParts').forEach(function (drawingPart) {
           this.canvas.drawImage(drawingPart);
         }, this);
 

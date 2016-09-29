@@ -10,7 +10,7 @@ define(['jquery',
       defaults: {
         'name': null,
         'token': null,
-        'answers': []
+        'drawingParts': []
       }
     });
 

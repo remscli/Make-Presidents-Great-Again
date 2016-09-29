@@ -1233,3 +1233,45 @@ label {
       -ms-flex-align: center;
           align-items: center;
 }
+.show__vote-wrapper {
+  position: relative;
+}
+.show__vote, .show__vote-backface {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.show__vote-backface {
+  position: absolute;
+  height: 67px;
+  padding: 0;
+  display: block;
+  line-height: 67px;
+  width: 100%;
+}
+.show__vote-backface.btn--success {
+  font-size: 2rem;
+}
+.show__vote-wrapper:not(.has-voted) .show__vote-backface {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+.show__vote {
+  -webkit-transform-origin: 50% 50% 5px;
+          transform-origin: 50% 50% 5px;
+}
+.show__vote img {
+  width: 30px;
+  margin-right: 13px;
+}
+.show__vote span,
+.show__vote img {
+  vertical-align: middle;
+}
+.has-voted .show__vote {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}

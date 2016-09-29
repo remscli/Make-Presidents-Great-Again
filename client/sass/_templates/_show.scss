@@ -38,8 +38,50 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
 
-    .btn {
+  &__vote-wrapper {
+    position: relative;
+  }
+
+  &__vote,
+  &__vote-backface {
+    backface-visibility: hidden;
+    transition: all .3s ease;
+    transform-style: preserve-3d;
+  }
+
+  &__vote-backface {
+    position: absolute;
+    height: 67px;
+    padding: 0;
+    display: block;
+    line-height: 67px;
+    width: 100%;
+
+    &.btn--success {
+      font-size: 2rem;
+    }
+
+    .show__vote-wrapper:not(.has-voted) & {
+      transform: rotateX(180deg);
+    }
+  }
+
+  &__vote {
+    transform-origin: 50% 50% 5px;
+
+    img {
+      width: 30px;
+      margin-right: 13px;
+    }
+    span,
+    img{
+      vertical-align: middle;
+    }
+
+    .has-voted & {
+      transform: rotateX(180deg);
     }
   }
 }

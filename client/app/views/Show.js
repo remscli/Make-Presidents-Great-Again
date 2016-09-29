@@ -18,13 +18,23 @@ define(['jquery',
     var ShowView = Page.extend({
       id: 'page-show',
 
-      events: {},
+      events: {
+        'click #voteButton': 'onVoteButtonClicked'
+      },
 
       initialize: function (token, options) {
         this.template = _.template(showTemplate);
 
         this.model = new President({id: token});
-        this.model.fetch({success: this.render.bind(this)});
+        this.model.fetch({
+          success: this.render.bind(this),
+          error: function () {
+            Backbone.history.navigate('/', {
+              trigger: true,
+              replace: false
+            });
+          }
+        });
       },
 
       render: function () {
@@ -50,6 +60,22 @@ define(['jquery',
         });
 
         this.ready();
+      },
+
+      onVoteButtonClicked: function () {
+        $.ajax({
+          type: "POST",
+          url: '/api/votes',
+          data: {
+            presidentId: this.model.get('_id')
+          }
+        }).done(function (res) {
+          $('.show__vote-backface').addClass('btn--success').text('Voted !');
+        }).fail(function (res) {
+          $('.show__vote-backface').addClass('btn--danger').text('You have already voted :(');
+        }).always(function () {
+          $('.show__vote-wrapper').addClass('has-voted');
+        });
       }
     });
 

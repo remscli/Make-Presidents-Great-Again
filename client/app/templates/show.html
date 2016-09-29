@@ -10,12 +10,19 @@
             <div class="delimiter delimiter--25"></div>
 
             <div class="show__countdown">
-                <h4 class="m-b-sm upper">Great President election in :</h4>
+                <h4 class="m-b-sm upper">Presidential election in :</h4>
                 <div id="countdown" class="countdown"></div>
             </div>
 
             <div class="show__actions">
-                <button class="btn btn--lg btn--secondary">Vote for <%= president.get('name') %></button>
+                <div class="show__vote-wrapper">
+                    <div class="show__vote-backface btn btn--lg"></div>
+                    <button class="show__vote btn btn--lg btn--secondary" id="voteButton">
+                        <img src="img/vote.svg" alt="+1" />
+                        <span>Vote for <%= president.get('name') %></span>
+                    </button>
+                </div>
+
                 <a href="https://twitter.com/intent/tweet?hashtags=GreatPresidentElection&text=Vote <%= president.get('name') %> for the great president election ! <%= window.location.href %>" target="_blank" class="btn btn--clear btn--twitter m-t-md">
                     <img src="img/twitter.svg" alt="Twitter" />
                     Share on twitter

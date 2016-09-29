@@ -1,15 +1,16 @@
-var _ = require('lodash');
-var express = require('express');
-var app = express();
-var http = require('http');
-var mongoose = require('mongoose');
-var config = require('./config');
-var President = require('./models/President');
-var apiRouter = express.Router();
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
+var _                 = require('lodash');
+var express           = require('express');
+var app               = express();
+var http              = require('http');
+var mongoose          = require('mongoose');
+var config            = require('./config');
+var President         = require('./models/President');
+var Vote              = require('./models/Vote');
+var apiRouter         = express.Router();
+var bodyParser        = require('body-parser');
+var fs                = require('fs');
+var multer            = require('multer');
+var getIP             = require('ipware')().get_ip;
 
 /*******************
  *
@@ -56,6 +57,8 @@ app.use(bodyParser.json());
 
 app.use(express.static('client'));
 
+var upload = multer({ dest: 'uploads/' });
+
 
 /*******************
  *
@@ -65,6 +68,36 @@ app.use(express.static('client'));
 
 // Prefix all api routes with /api
 app.use('/api', apiRouter);
+
+// Votes
+apiRouter.post('/votes', function (req, res) {
+  var vote = new Vote({
+    voter: {
+      ipAddress: getIP(req).clientIp
+    },
+    presidentId: req.body.presidentId
+  });
+
+
+  Vote.find({voter: {ipAddress: vote.voter.ipAddress}}, function (err, votes) {
+    // Check for errors or if the IP address is already present
+    if (err || votes.length > 0) {
+      return res.status(403).json({
+        message: 'You have already voted for a president !'
+      });
+    }
+
+    vote.save(function (err, vote) {
+      if (err) {
+        return res.status(403).json({
+          message: err
+        });
+      }
+
+      res.status(201).json(vote);
+    });
+  });
+});
 
 // Presidents
 apiRouter.post('/presidents', upload.single('drawing'), function (req, res) {
@@ -98,6 +131,12 @@ apiRouter.get('/presidents/:token', function (req, res) {
     if (err) {
       return res.status(403).json({
         message: err
+      });
+    }
+
+    if (!presidents.length) {
+      return res.status(404).json({
+        message: 'no president found'
       });
     }
 

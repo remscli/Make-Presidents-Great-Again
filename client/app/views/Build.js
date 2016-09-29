@@ -151,6 +151,9 @@ define(['jquery',
         permalinkEl.innerText = permalinkEl.href = permalink;
 
         this.$el.addClass('build--share');
+        TweenMax.to('#reset', .3, {opacity: 0, onComplete: function () {
+          $('#reset').remove();
+        }});
         TweenMax.set('.build__end-message', {opacity: 1});
         TweenMax.to('#drawingCanvas', .35, {x: '100%', delay: .3});
       },

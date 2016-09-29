@@ -718,10 +718,16 @@ label {
 .btn--lg {
   padding: 2rem 3.5rem;
 }
-.btn--primary {
+.btn--secondary {
+  background: #eb212e;
+}
+.btn--secondary:hover {
+  background: #c7121e;
+}
+.btn--outline {
   border: 2px solid #eb212e;
 }
-.btn--primary::before, .btn--primary::after {
+.btn--outline::before, .btn--outline::after {
   content: "";
   display: inline-block;
   width: 2rem;
@@ -731,18 +737,18 @@ label {
   -webkit-transition: left .3s ease-out;
           transition: left .3s ease-out;
 }
-.btn--primary:before {
+.btn--outline:before {
   top: -2px;
   left: 20%;
 }
-.btn--primary:after {
+.btn--outline:after {
   bottom: -2px;
   left: 60%;
 }
-.btn--primary:hover::before {
+.btn--outline:hover::before {
   left: 80%;
 }
-.btn--primary:hover::after {
+.btn--outline:hover::after {
   left: 20%;
 }
 .btn--success {
@@ -758,6 +764,9 @@ label {
   width: 25px;
   vertical-align: middle;
   margin-right: 10px;
+}
+.btn--twitter:hover {
+  background: #0087ba;
 }
 
 .bg-slideshow {
@@ -915,7 +924,6 @@ label {
 }
 .build__namer .btn {
   margin-top: 3rem;
-  background: #eb212e;
 }
 .build__namer .error {
   display: none;

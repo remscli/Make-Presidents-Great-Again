@@ -24,7 +24,15 @@
     padding: 2rem 3.5rem;
   }
 
-  &--primary {
+  &--secondary {
+    background: $brand-secondary;
+
+    &:hover {
+      background: darken($brand-secondary, 10);
+    }
+  }
+
+  &--outline {
     border: 2px solid $brand-secondary;
 
     &::before,
@@ -73,6 +81,10 @@
       width: 25px;
       vertical-align: middle;
       margin-right: 10px;
+    }
+
+    &:hover {
+      background: darken(#00aced, 10);
     }
   }
 }

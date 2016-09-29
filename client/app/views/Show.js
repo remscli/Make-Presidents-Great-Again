@@ -34,7 +34,6 @@ define(['jquery',
           this.canvas.drawImage(drawingPart);
         }, this);
 
-
         var permalinkEl = this.$el.find('#permalink')[0];
         permalinkEl.innerText = permalinkEl.href = window.location.href;
 

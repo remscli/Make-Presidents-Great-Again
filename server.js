@@ -71,7 +71,7 @@ apiRouter.post('/presidents', upload.single('drawing'), function (req, res) {
   var president = new President();
 
   president.name = req.body.name;
-  president.drawingParts = req.body.drawingParts;
+  president.drawingParts = req.body.drawingParts.split(',');
 
   // save the president and check for errors
   president.save(function (err, president) {

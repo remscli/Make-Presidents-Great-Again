@@ -41,8 +41,8 @@ define(['jquery',
         TweenMax.set(this.questionParts, {opacity: 0});
 
         this.questionBodyEl = this.$el.find("#questionBody");
-
         this.nameInput = this.$el.find('#nameInput');
+        this.counter = this.$el.find('#counter');
 
         this.ready();
       },
@@ -87,6 +87,8 @@ define(['jquery',
         if (shouldAnimate) {
           TweenMax.to(this.questionBodyEl, .3, {scale: 1, opacity: 1});
         }
+
+        this.updateCounter();
       },
 
       answerButtonClicked: function (e) {
@@ -163,6 +165,10 @@ define(['jquery',
         this.canvas.clear();
         this.remainingQuestions = _.clone(this.questions);
         this.pickCurrentQuestion(false);
+      },
+
+      updateCounter: function () {
+        this.counter.text( this.questions.length - this.remainingQuestions.length + ' / ' + this.questions.length);
       }
     });
 

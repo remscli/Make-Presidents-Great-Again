@@ -71,7 +71,7 @@ define(['jquery',
 
         function questionsLoaded(questions) {
           this.questions = questions;
-          this.remainingQuestions = questions;
+          this.remainingQuestions = _.clone(questions);
 
           this.pickCurrentQuestion(false);
         }
@@ -161,7 +161,7 @@ define(['jquery',
       onResetButtonClick: function () {
         this.selectedAnswers = [];
         this.canvas.clear();
-        this.remainingQuestions = this.questions;
+        this.remainingQuestions = _.clone(this.questions);
         this.pickCurrentQuestion(false);
       }
     });

@@ -18,7 +18,7 @@ define(['jquery',
 
       events: {
         'click .build__button': 'answerButtonClicked',
-        'click #nameButton': 'onNameButtonClick',
+        'submit #nameForm': 'onNameFormSubmitted',
         'click #reset': 'onResetButtonClick'
       },
 
@@ -121,7 +121,9 @@ define(['jquery',
         }
       },
 
-      onNameButtonClick: function () {
+      onNameFormSubmitted: function (e) {
+        e.preventDefault();
+
         var name = this.nameInput.val();
 
         if (name.length < 3) {

@@ -141,12 +141,15 @@ define(['jquery',
 
         function onSaveSuccess(president) {
           this.president = president;
-          console.log(president);
           this.slideDrawing();
         }
       },
 
       slideDrawing: function () {
+        var permalink = window.location.protocol + '//' + window.location.host + '/p/' + this.president.get('token');
+        var permalinkEl = this.$el.find('#permalink')[0];
+        permalinkEl.innerText = permalinkEl.href = permalink;
+
         this.$el.addClass('build--share');
         TweenMax.set('.build__end-message', {opacity: 1});
         TweenMax.to('#drawingCanvas', .35, {x: '100%', delay: .3});

@@ -936,6 +936,9 @@ label {
 .home__button-wrapper {
   padding: 1.1rem 2rem;
 }
+.home__button {
+  opacity: 0;
+}
 .home__stars {
   list-style-type: none;
   padding: 0 1.5rem;
@@ -965,6 +968,18 @@ label {
           flex: 1;
   height: 5px;
   background: #fff;
+  -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+}
+.home:not(.home--shown) .home__bars::before {
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+  opacity: 0;
+}
+.home:not(.home--shown) .home__bars::after {
+  -webkit-transform: translateX(40px);
+          transform: translateX(40px);
+  opacity: 0;
 }
 
 .build {

@@ -31,6 +31,10 @@
     padding: 1.1rem 2rem;
   }
 
+  &__button {
+    opacity: 0;
+  }
+
   &__stars {
     list-style-type: none;
     padding: 0 1.5rem;
@@ -56,6 +60,18 @@
       flex: 1;
       height: 5px;
       background: #fff;
+      transition: all .3s ease;
+    }
+  }
+
+  &:not(&--shown) {
+    .home__bars::before {
+      transform: translateX(-40px);
+      opacity: 0;
+    }
+    .home__bars::after {
+      transform: translateX(40px);
+      opacity: 0;
     }
   }
 }

@@ -19,7 +19,12 @@ define(['jquery',
         this.offsetY = (this.height - (this.originalSceneSize * this.scaleFactor)) / 2;
 
         // Create the renderer
-        this.renderer = PIXI.autoDetectRenderer(this.width, this.height, {transparent: true, resolution: window.devicePixelRatio});
+        this.renderer = PIXI.autoDetectRenderer(this.width, this.height, {
+          transparent: false,
+          resolution: window.devicePixelRatio,
+          preserveDrawingBuffer: true
+        });
+        this.renderer.backgroundColor = 0xFFFFFF;
 
         // Add the canvas to the HTML document
         this.el.appendChild(this.renderer.view);
@@ -85,6 +90,10 @@ define(['jquery',
 
       getImagePath: function (imageFileName) {
         return 'img/' + imageFileName + '.png';
+      },
+
+      getDataURL: function () {
+        return this.renderer.view.toDataURL("image/jpeg", 0.6);
       }
     });
 

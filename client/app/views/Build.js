@@ -136,7 +136,8 @@ define(['jquery',
           name: this.presidentName,
           drawingParts: this.selectedAnswers.map(function (answer) {
             return answer.imageFileName
-          })
+          }),
+          drawing: this.canvas.getDataURL()
         });
 
         president.save(null, {success: onSaveSuccess.bind(this), error: function (err) {

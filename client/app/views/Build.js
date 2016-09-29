@@ -148,7 +148,7 @@ define(['jquery',
 
         function onSaveSuccess(president) {
           this.president = president;
-          this.$el.find('.btn--twitter').attr("href", 'https://twitter.com/intent/tweet?text=Vote for ' + president.get('name') + ', my custom great president ! ' + window.location.href);
+          this.$el.find('.btn--twitter').attr("href", 'https://twitter.com/intent/tweet?hashtags=GreatPresidentElection&text=Vote ' + president.get('name') + ' for the great president election ! ' + window.location.href);
           this.slideDrawing();
           Backbone.history.navigate('/p/' + president.get('token'), {
             trigger: false,

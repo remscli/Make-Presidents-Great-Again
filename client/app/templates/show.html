@@ -4,23 +4,23 @@
             <h2 class="title" id="endMessage">
                 <small class="title__head">Vote</small>
                 <span class="title__body"><%= president.get('name') %></span>
-                <small class="title__foot">for great president!</small>
+                <small class="title__foot">for great president !</small>
             </h2>
-
-            <a href="https://twitter.com/intent/tweet?text=Vote for <%= president.get('name') %>, my custom great president ! <%= window.location.href %>" target="_blank" class="btn btn--lg btn--twitter">
-                <img src="img/twitter.svg" alt="Twitter" />
-                Share on twitter
-            </a>
-            <p>
-                or spread this link :<br>
-                <a href="#" target="_blank" class="m-t-xs inline-block font-bold" id="permalink"></a>
-            </p>
 
             <div class="delimiter delimiter--25"></div>
 
-            <a href="/" class="btn btn--outline">
-                Build My Own Great President
-            </a>
+            <div class="show__countdown">
+                <h4 class="m-b-sm upper">Great President election in :</h4>
+                <div id="countdown" class="countdown"></div>
+            </div>
+
+            <div class="show__actions">
+                <button class="btn btn--lg btn--secondary">Vote for <%= president.get('name') %></button>
+                <a href="https://twitter.com/intent/tweet?hashtags=GreatPresidentElection&text=Vote <%= president.get('name') %> for the great president election ! <%= window.location.href %>" target="_blank" class="btn btn--clear btn--twitter m-t-md">
+                    <img src="img/twitter.svg" alt="Twitter" />
+                    Share on twitter
+                </a>
+            </div>
         </div>
     </div>
 

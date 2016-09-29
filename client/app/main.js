@@ -7,6 +7,7 @@ requirejs.config({
     backbone: 'lib/backbone.min',
     TweenMax: 'lib/TweenMax',
     pixi: 'lib/pixi',
+    FlipClock: 'lib/FlipClock',
     app: 'app'
   },
   shim: {
@@ -18,6 +19,9 @@ requirejs.config({
     },
     pixi: {
       exports: 'PIXI'
+    },
+    FlipClock: {
+      exports: 'FlipClock'
     },
     TweenMax: {
       exports: 'TweenMax'

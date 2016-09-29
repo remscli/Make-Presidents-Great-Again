@@ -554,8 +554,16 @@ body,
   display: inline-block !important;
 }
 
+.m-b-sm {
+  margin-bottom: 1rem !important;
+}
+
 .m-t-xs {
   margin-top: 5px !important;
+}
+
+.m-t-md {
+  margin-top: 3rem !important;
 }
 
 .delimiter {
@@ -780,6 +788,12 @@ label {
   vertical-align: middle;
   margin-right: 10px;
 }
+.btn--twitter.btn--clear {
+  background: none;
+}
+.btn--twitter.btn--clear:hover {
+  background: #00aced;
+}
 .btn--twitter:hover {
   background: #0087ba;
 }
@@ -815,6 +829,34 @@ label {
 
 .bg-slideshow__item:nth-child(4) {
   background-image: url("../img/background-hillary-2.jpg");
+}
+
+.countdown > * {
+  display: inline-block;
+}
+.countdown .flip {
+  list-style-type: none;
+  padding: 5px;
+  margin: 0 0 20px 0;
+  font-size: 2.5rem;
+  width: 25px;
+}
+.countdown .flip:nth-of-type(even):not(:last-of-type) {
+  margin-right: 20px;
+}
+.countdown .flip-clock-before,
+.countdown .up {
+  display: none;
+}
+.countdown .flip-clock-label {
+  position: absolute;
+  margin-top: 8px;
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  width: 50px;
+  text-align: center;
 }
 
 .draw-area {
@@ -1169,6 +1211,25 @@ label {
 .show__right {
   height: 100%;
 }
+.show .title__foot,
+.show .title__head {
+  opacity: 0.8;
+}
 .show__content {
   width: 100%;
+}
+.show__countdown .countdown {
+  margin-bottom: 3rem;
+}
+.show__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }

@@ -83,6 +83,13 @@
       margin-right: 10px;
     }
 
+    &.btn--clear {
+      background: none;
+      &:hover {
+        background: #00aced;
+      }
+    }
+
     &:hover {
       background: darken(#00aced, 10);
     }

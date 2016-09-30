@@ -1,32 +1,110 @@
 [
   {
     "fileName": "clinton-body",
-    "x": 377,
-    "y": 333
+    "x": 427,
+    "y": 333,
+    "z": 10
   },
   {
     "fileName": "trump-body",
-    "x": 282,
-    "y": 333
+    "x": 332,
+    "y": 333,
+    "z": 10
   },
   {
     "fileName": "clinton-hair",
-    "x": 396,
-    "y": 250
+    "x": 440,
+    "y": 250,
+    "z": 11
   },
   {
     "fileName": "trump-hair",
-    "x": 415,
-    "y": 316
+    "x": 465,
+    "y": 316,
+    "z": 11
   },
   {
     "fileName": "clinton-mouth-nose",
-    "x": 469,
-    "y": 442
+    "x": 510,
+    "y": 438,
+    "z": 12
   },
   {
     "fileName": "trump-mouth-nose",
-    "x": 474,
-    "y": 423
+    "x": 524,
+    "y": 423,
+    "z": 12
+  },
+  {
+    "fileName": "babies",
+    "x": 623,
+    "y": 977,
+    "z": 13
+  },
+  {
+    "fileName": "bombs",
+    "x": 718,
+    "y": 32,
+    "z": 1
+  },
+  {
+    "fileName": "clinton-gun",
+    "x": 729,
+    "y": 293,
+    "z": 14
+  },
+  {
+    "fileName": "desert",
+    "x": 0,
+    "y": 334,
+    "z": 0
+  },
+  {
+    "fileName": "petrol",
+    "x": 46,
+    "y": 314,
+    "z": 2
+  },
+  {
+    "fileName": "trump-gun",
+    "x": 77,
+    "y": 914,
+    "z": 9
+  },
+  {
+    "fileName": "turbine",
+    "x": 0,
+    "y": 104,
+    "z": 3
+  },
+  {
+    "fileName": "gay-flag",
+    "x": 221,
+    "y": 36,
+    "z": 8
+  },
+  {
+    "fileName": "us-flag",
+    "x": 193,
+    "y": 3,
+    "z": 8
+  },
+  {
+    "fileName": "wall",
+    "x": 988,
+    "y": 201,
+    "z": 7
+  },
+  {
+    "fileName": "clinton-joint",
+    "x": 558,
+    "y": 514,
+    "z": 15
+  },
+  {
+    "fileName": "trump-joint",
+    "x": 605,
+    "y": 490,
+    "z": 15
   }
 ]

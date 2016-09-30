@@ -97,9 +97,24 @@ define(['jquery',
         var answerType = e.currentTarget.dataset.answer;
         var answer = this.currentQuestion[answerType + 'Answer'];
 
+        if (this.currentQuestion.type) {
+          this[this.currentQuestion.type + 'Value'] = answer.value;
+        }
+
         this.selectedAnswers.push(answer);
 
-        this.canvas.drawImage(answer.imageFileName);
+        var fileNames = answer.imageFileName.split(',');
+        fileNames.forEach(function (fileName) {
+          // Prefix files beginning with a dash with chosen body
+          if (fileName.indexOf('BODY-') > -1) {
+            fileName = this.bodyValue + fileName.replace('BODY-', '-');
+          }
+          if (fileName.indexOf('FACE-') > -1) {
+            fileName = this.faceValue + fileName.replace('FACE-', '-');
+          }
+
+          this.canvas.drawImage(fileName);
+        }, this);
 
         TweenMax.to('#reset', 1, {opacity: 1});
         if (this.remainingQuestions.length) {

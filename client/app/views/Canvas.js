@@ -81,8 +81,17 @@ define(['jquery',
           image.height = image.height * this.scaleFactor;
           image.position.x = this.offsetX + (position.x * this.scaleFactor);
           image.position.y = this.offsetY + (position.y * this.scaleFactor);
+          image.z = position.z;
 
           this.stage.addChild(image);
+
+          function depthCompare(a, b) {
+            if (a.z < b.z) return -1;
+            if (a.z > b.z) return 1;
+            return 0;
+          }
+
+          this.stage.children.sort(depthCompare);
 
           this.update();
         }

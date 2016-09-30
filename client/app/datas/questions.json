@@ -1,6 +1,7 @@
 [
   {
     "questionBody": "a woman president",
+    "type": "body",
     "positiveAnswer": {
       "imageFileName": "clinton-body",
       "value": "clinton"
@@ -12,63 +13,53 @@
   },
   {
     "questionBody": "a hairy president",
+    "type": "face",
     "positiveAnswer": {
-      "imageFileName": "trump-hair",
+      "imageFileName": "trump-hair,trump-mouth-nose",
       "value": "trump"
     },
     "negativeAnswer": {
-      "imageFileName": "clinton-hair",
+      "imageFileName": "clinton-hair,clinton-mouth-nose",
       "value": "clinton"
-    }
-  },
-  {
-    "questionBody": "a fun president",
-    "positiveAnswer": {
-      "imageFileName": "clinton-mouth-nose",
-      "value": "clinton"
-    },
-    "negativeAnswer": {
-      "imageFileName": "trump-mouth-nose",
-      "value": "trump"
     }
   },
   {
     "questionBody": "immigration",
     "positiveAnswer": {
-      "imageFileName": "drone-war",
+      "imageFileName": "desert,bombs",
       "value": "clinton"
     },
     "negativeAnswer": {
-      "imageFileName": "glasses",
+      "imageFileName": "desert,wall",
+      "value": "trump"
+    }
+  },
+  {
+    "questionBody": "gay marriage",
+    "positiveAnswer": {
+      "imageFileName": "gay-flag",
+      "value": "clinton"
+    },
+    "negativeAnswer": {
+      "imageFileName": "us-flag",
       "value": "trump"
     }
   },
   {
     "questionBody": "free gun ownership",
     "positiveAnswer": {
-      "imageFileName": "weapon",
+      "imageFileName": "BODY-gun",
       "value": "trump"
     },
     "negativeAnswer": {
-      "imageFileName": "",
+      "imageFileName": "BODY-gun",
       "value": "clinton"
-    }
-  },
-  {
-    "questionBody": "gay marriage",
-    "positiveAnswer": {
-      "imageFileName": "rainbow-flag",
-      "value": "clinton"
-    },
-    "negativeAnswer": {
-      "imageFileName": "american-flag",
-      "value": "trump"
     }
   },
   {
     "questionBody": "marijuana legalization",
     "positiveAnswer": {
-      "imageFileName": "blunt",
+      "imageFileName": "FACE-joint",
       "value": "clinton"
     },
     "negativeAnswer": {
@@ -79,7 +70,7 @@
   {
     "questionBody": "banning abortion",
     "positiveAnswer": {
-      "imageFileName": "babies-crying",
+      "imageFileName": "babies",
       "value": "trump"
     },
     "negativeAnswer": {
@@ -90,11 +81,11 @@
   {
     "questionBody": "climate change fight",
     "positiveAnswer": {
-      "imageFileName": "ecologic-landscape",
+      "imageFileName": "turbine",
       "value": "clinton"
     },
     "negativeAnswer": {
-      "imageFileName": "apocalyptic-landscape",
+      "imageFileName": "petrol",
       "value": "trump"
     }
   }

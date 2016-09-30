@@ -187,6 +187,7 @@ define(['jquery',
       },
 
       slideDrawing: function () {
+        $('.build__questions').remove();
         var permalink = window.location.protocol + '//' + window.location.host + '/p/' + this.president.get('token');
         var permalinkEl = this.$el.find('#permalink')[0];
         permalinkEl.innerText = permalinkEl.href = permalink;

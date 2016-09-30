@@ -1,4 +1,4 @@
-.show {
+.pr-show {
   position: relative;
   height: 100%;
   display: flex;
@@ -63,7 +63,7 @@
       font-size: 2rem;
     }
 
-    .show__vote-wrapper:not(.has-voted) & {
+    .pr-show__vote-wrapper:not(.has-voted) & {
       transform: rotateX(180deg);
     }
   }

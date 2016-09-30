@@ -4,7 +4,7 @@ define(['jquery',
     'app/router/router',
     'app/views/Home',
     'app/views/Build',
-    'app/views/Show',
+    'app/views/PresidentShow',
     'app/views/Slideshow'],
   function ($,
             _,
@@ -12,7 +12,7 @@ define(['jquery',
             Router,
             HomeView,
             BuildView,
-            ShowView,
+            PresidentShowView,
             SlideshowView) {
 
     var App = Backbone.View.extend({
@@ -43,8 +43,8 @@ define(['jquery',
         // Build
         this.listenTo(this.router, 'build', this.goBuild);
 
-        // Show
-        this.listenTo(this.router, 'show', this.goShow);
+        // President Show
+        this.listenTo(this.router, 'president:show', this.goPresidentShow);
 
         this.router.start();
       },
@@ -76,12 +76,12 @@ define(['jquery',
         });
       },
 
-      goShow: function (token) {
+      goPresidentShow: function (token) {
         this.slideshow.displayImage('background-build.jpg');
         this.goTo(null, {
           url: '/p/' + token,
           method: function () {
-            this.currentPage = new ShowView(token);
+            this.currentPage = new PresidentShowView(token);
           }
         });
       },

@@ -1,6 +1,6 @@
-<div class="show">
-    <div class="show__left">
-        <div class="show__content">
+<div class="pr-show">
+    <div class="pr-show__left">
+        <div class="pr-show__content">
             <h2 class="title" id="endMessage">
                 <small class="title__head">Vote</small>
                 <span class="title__body"><%= president.get('name') %></span>
@@ -9,15 +9,15 @@
 
             <div class="delimiter delimiter--25"></div>
 
-            <div class="show__countdown">
+            <div class="pr-show__countdown">
                 <h4 class="m-b-sm upper">Presidential election in :</h4>
                 <div id="countdown" class="countdown"></div>
             </div>
 
-            <div class="show__actions">
-                <div class="show__vote-wrapper">
-                    <div class="show__vote-backface btn btn--lg"></div>
-                    <button class="show__vote btn btn--lg btn--secondary" id="voteButton">
+            <div class="pr-show__actions">
+                <div class="pr-show__vote-wrapper">
+                    <div class="pr-show__vote-backface btn btn--lg"></div>
+                    <button class="pr-show__vote btn btn--lg btn--secondary" id="voteButton">
                         <img src="img/vote.svg" alt="+1" />
                         <span>Vote for <%= president.get('name') %></span>
                     </button>
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <div class="show__right">
+    <div class="pr-show__right">
         <div class="draw-area draw-area--shown" id="drawingCanvas"></div>
     </div>
 

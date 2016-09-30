@@ -5,7 +5,7 @@ define(['jquery',
     'app/views/Page',
     'app/views/Canvas',
     'app/models/President',
-    'text!app/templates/show.html'],
+    'text!app/templates/president-show.html'],
   function ($,
             _,
             Backbone,
@@ -13,17 +13,17 @@ define(['jquery',
             Page,
             Canvas,
             President,
-            showTemplate) {
+            presidentShowTemplate) {
 
-    var ShowView = Page.extend({
-      id: 'page-show',
+    var PresidentShowView = Page.extend({
+      id: 'page-president-show',
 
       events: {
         'click #voteButton': 'onVoteButtonClicked'
       },
 
       initialize: function (token, options) {
-        this.template = _.template(showTemplate);
+        this.template = _.template(presidentShowTemplate);
 
         this.model = new President({id: token});
         this.model.fetch({
@@ -89,14 +89,14 @@ define(['jquery',
             presidentId: this.model.get('_id')
           }
         }).done(function (res) {
-          $('.show__vote-backface').addClass('btn--success').text('Voted !');
+          $('.pr-show__vote-backface').addClass('btn--success').text('Voted !');
         }).fail(function (res) {
-          $('.show__vote-backface').addClass('btn--danger').text('You have already voted :(');
+          $('.pr-show__vote-backface').addClass('btn--danger').text('You have already voted :(');
         }).always(function () {
-          $('.show__vote-wrapper').addClass('has-voted');
+          $('.pr-show__vote-wrapper').addClass('has-voted');
         });
       }
     });
 
-    return ShowView;
+    return PresidentShowView;
   });

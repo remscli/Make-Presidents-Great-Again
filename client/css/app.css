@@ -1184,7 +1184,7 @@ label {
   background: #10a831;
 }
 
-.show {
+.pr-show {
   position: relative;
   height: 100%;
   display: -webkit-box;
@@ -1194,12 +1194,12 @@ label {
       -ms-flex-align: center;
           align-items: center;
 }
-.show__left, .show__right {
+.pr-show__left, .pr-show__right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
-.show__left {
+.pr-show__left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1208,20 +1208,20 @@ label {
           align-items: center;
   text-align: center;
 }
-.show__right {
+.pr-show__right {
   height: 100%;
 }
-.show .title__foot,
-.show .title__head {
+.pr-show .title__foot,
+.pr-show .title__head {
   opacity: 0.8;
 }
-.show__content {
+.pr-show__content {
   width: 100%;
 }
-.show__countdown .countdown {
+.pr-show__countdown .countdown {
   margin-bottom: 3rem;
 }
-.show__actions {
+.pr-show__actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1233,10 +1233,10 @@ label {
       -ms-flex-align: center;
           align-items: center;
 }
-.show__vote-wrapper {
+.pr-show__vote-wrapper {
   position: relative;
 }
-.show__vote, .show__vote-backface {
+.pr-show__vote, .pr-show__vote-backface {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transition: all .3s ease;
@@ -1244,7 +1244,7 @@ label {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
-.show__vote-backface {
+.pr-show__vote-backface {
   position: absolute;
   height: 67px;
   padding: 0;
@@ -1252,30 +1252,30 @@ label {
   line-height: 67px;
   width: 100%;
 }
-.show__vote-backface.btn--success {
+.pr-show__vote-backface.btn--success {
   font-size: 2rem;
 }
-.show__vote-wrapper:not(.has-voted) .show__vote-backface {
+.pr-show__vote-wrapper:not(.has-voted) .pr-show__vote-backface {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
-.show__vote {
+.pr-show__vote {
   -webkit-transform-origin: 50% 50% 5px;
           transform-origin: 50% 50% 5px;
 }
-.show__vote img {
+.pr-show__vote img {
   width: 30px;
   margin-right: 13px;
 }
-.show__vote span,
-.show__vote img {
+.pr-show__vote span,
+.pr-show__vote img {
   vertical-align: middle;
 }
-.has-voted .show__vote {
+.has-voted .pr-show__vote {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
-.show #animationOverlay {
+.pr-show #animationOverlay {
   position: absolute;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;

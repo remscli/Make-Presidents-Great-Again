@@ -24,7 +24,7 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     },
 
     show: function(token) {
-      this.trigger('show', token);
+      this.trigger('president:show', token);
     }
   });
 

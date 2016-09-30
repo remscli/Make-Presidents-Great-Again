@@ -6,7 +6,8 @@ var PresidentSchema = mongoose.Schema({
   drawingParts: [{type: String}],
   votes: [{
     ipAddress: {type: String, index: { unique: true }}
-  }]
+  }],
+  votesCount: {type: Number, default: 0}
 });
 
 module.exports = mongoose.model('President', PresidentSchema);

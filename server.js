@@ -71,15 +71,20 @@ app.use('/api', apiRouter);
 
 // President Index
 apiRouter.get('/presidents', function (req, res) {
-  President.find(function (err, presidents) {
-    if (err) {
-      return res.status(403).json({
-        message: err
-      });
-    }
+  President
+    .find({})
+    .sort({'votesCount': -1})
+    .limit(20)
+    .select('-votes')
+    .exec(function (err, presidents) {
+      if (err) {
+        return res.status(403).json({
+          message: err
+        });
+      }
 
-    res.status(200).json(presidents);
-  });
+      res.status(200).json(presidents);
+    });
 });
 
 // President Create
@@ -112,23 +117,26 @@ apiRouter.post('/presidents', upload.single('drawing'), function (req, res) {
 
 // President Show
 apiRouter.get('/presidents/:token', function (req, res) {
-  President.find({token: req.params.token}, function (err, presidents) {
-    if (err) {
-      return res.status(403).json({
-        message: err
-      });
-    }
+  President
+    .find({token: req.params.token})
+    .select('-votes')
+    .exec(function (err, presidents) {
+      if (err) {
+        return res.status(403).json({
+          message: err
+        });
+      }
 
-    if (!presidents.length) {
-      return res.status(404).json({
-        message: 'no president found'
-      });
-    }
+      if (!presidents.length) {
+        return res.status(404).json({
+          message: 'no president found'
+        });
+      }
 
-    var president = presidents[0];
+      var president = presidents[0];
 
-    res.status(200).json(president);
-  });
+      res.status(200).json(president);
+    });
 });
 
 // President Vote
@@ -147,6 +155,7 @@ apiRouter.post('/presidents/:token/vote', function (req, res) {
 
     // Update president votes counter
     President.update({ token: req.params.token }, {
+      $inc: {votesCount: 1},
       $push: {votes: {ipAddress: voterIpAddress}}
     }, function (err, president) {
       if (err){

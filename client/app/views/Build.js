@@ -23,6 +23,8 @@ define(['jquery',
       },
 
       initialize: function (options) {
+        this.state = "BUILD";
+
         this.template = _.template(buildTemplate);
 
         this.remainingQuestions = null;
@@ -132,7 +134,19 @@ define(['jquery',
 
         function onHideCompleted() {
           this.nameInput.focus();
-          $('.build__questions').remove();
+          this.state = "NAME";
+        }
+      },
+
+      showQuestions: function () {
+        var tl = new TimelineMax({onComplete: onShowCompleted.bind(this)});
+
+        tl.to('.build__questions', .3, {x: '0%', opacity: 1, ease: Power3.easeInOut}, .2);
+        tl.to('.build__namer', .3, {x: '100%', opacity: 0, ease: Power3.easeInOut}, .2);
+
+        function onShowCompleted() {
+          this.state = "BUILD";
+          $('.build__questions').css({transform: 'none'});
         }
       },
 
@@ -190,6 +204,7 @@ define(['jquery',
         this.canvas.clear();
         this.remainingQuestions = _.clone(this.questions);
         this.pickCurrentQuestion(false);
+        if (this.state == "NAME") this.showQuestions();
       },
 
       updateCounter: function () {

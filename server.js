@@ -5,7 +5,6 @@ var http              = require('http');
 var mongoose          = require('mongoose');
 var config            = require('./config');
 var President         = require('./models/President');
-var Vote              = require('./models/Vote');
 var apiRouter         = express.Router();
 var bodyParser        = require('body-parser');
 var fs                = require('fs');
@@ -69,37 +68,20 @@ var upload = multer({ dest: 'uploads/' });
 // Prefix all api routes with /api
 app.use('/api', apiRouter);
 
-// Votes
-apiRouter.post('/votes', function (req, res) {
-  var vote = new Vote({
-    voter: {
-      ipAddress: getIP(req).clientIp
-    },
-    presidentId: req.body.presidentId
-  });
-
-
-  Vote.find({voter: {ipAddress: vote.voter.ipAddress}}, function (err, votes) {
-    // Check for errors or if the IP address is already present
-    if (err || votes.length > 0) {
+// President Index
+apiRouter.get('/presidents', function (req, res) {
+  President.find(function (err, presidents) {
+    if (err) {
       return res.status(403).json({
-        message: 'You have already voted for a president !'
+        message: err
       });
     }
 
-    vote.save(function (err, vote) {
-      if (err) {
-        return res.status(403).json({
-          message: err
-        });
-      }
-
-      res.status(201).json(vote);
-    });
+    res.status(200).json(presidents);
   });
 });
 
-// Presidents
+// President Create
 apiRouter.post('/presidents', upload.single('drawing'), function (req, res) {
   var president = new President();
 
@@ -126,6 +108,7 @@ apiRouter.post('/presidents', upload.single('drawing'), function (req, res) {
   });
 });
 
+// President Show
 apiRouter.get('/presidents/:token', function (req, res) {
   President.find({token: req.params.token}, function (err, presidents) {
     if (err) {
@@ -143,6 +126,36 @@ apiRouter.get('/presidents/:token', function (req, res) {
     var president = presidents[0];
 
     res.status(200).json(president);
+  });
+});
+
+// President Vote
+apiRouter.post('/presidents/:token/vote', function (req, res) {
+  var voterIpAddress = getIP(req).clientIp;
+
+  President.find({'votes.ipAddress': voterIpAddress}, function (err, presidents) {
+    console.log(presidents);
+
+    // Check for errors or if the IP address is already present
+    if (err || presidents.length > 0) {
+      return res.status(403).json({
+        message: 'You have already voted for a president !'
+      });
+    }
+
+    // Update president votes counter
+    President.update({ token: req.params.token }, {
+      $push: {votes: {ipAddress: voterIpAddress}}
+    }, function (err, president) {
+      if (err){
+        return res.status(403).json({
+          success: false,
+          message: 'An error happened when saving your vote.'
+        });
+      }
+
+      res.status(201).json({success: true});
+    });
   });
 });
 

@@ -84,10 +84,7 @@ define(['jquery',
       onVoteButtonClicked: function () {
         $.ajax({
           type: "POST",
-          url: '/api/votes',
-          data: {
-            presidentId: this.model.get('_id')
-          }
+          url: '/api/presidents/' + this.model.get('token') + '/vote'
         }).done(function (res) {
           $('.pr-show__vote-backface').addClass('btn--success').text('Voted !');
         }).fail(function (res) {

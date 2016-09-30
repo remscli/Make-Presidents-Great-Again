@@ -5,7 +5,7 @@ var PresidentSchema = mongoose.Schema({
   token: { type: String, index: { unique: true }},
   drawingParts: [{type: String}],
   votes: [{
-    ipAddress: {type: String, index: { unique: true }}
+    ipAddress: {type: String}
   }],
   votesCount: {type: Number, default: 0}
 });

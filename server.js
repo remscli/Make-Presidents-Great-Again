@@ -10,6 +10,7 @@ var bodyParser        = require('body-parser');
 var fs                = require('fs');
 var multer            = require('multer');
 var getIP             = require('ipware')().get_ip;
+var randtoken         = require('rand-token');
 
 /*******************
  *
@@ -87,6 +88,7 @@ apiRouter.post('/presidents', upload.single('drawing'), function (req, res) {
 
   president.name = req.body.name;
   president.drawingParts = req.body.drawingParts.split(',');
+  president.token = randtoken.generate(12);
 
   // save the president and check for errors
   president.save(function (err, president) {

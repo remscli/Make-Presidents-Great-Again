@@ -443,7 +443,6 @@ body {
   color: #fff;
   font-family: "Open Sans", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: #272b39;
   padding: 0;
 }
 
@@ -813,6 +812,7 @@ label {
   bottom: 0;
   background-position: center center;
   background-size: cover;
+  will-change: transform;
 }
 
 .bg-slideshow__item:nth-child(1) {
@@ -1274,4 +1274,17 @@ label {
 .has-voted .show__vote {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
+}
+.show #animationOverlay {
+  position: absolute;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  z-index: 10;
+  top: -2rem;
+  left: -2rem;
+  right: -2rem;
+  bottom: -2rem;
+  background: #fff;
+  border-radius: 5px;
+  will-change: transform;
 }

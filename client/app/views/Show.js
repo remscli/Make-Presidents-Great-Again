@@ -62,6 +62,25 @@ define(['jquery',
         this.ready();
       },
 
+      shown: function () {
+        var overlay = $('#animationOverlay')[0];
+        var overlayPos = overlay.getBoundingClientRect();
+
+        var canvas = $('#drawingCanvas')[0];
+        var canvasPos = canvas.getBoundingClientRect();
+
+        var tl = new TimelineMax();
+        tl.to(overlay, .9, {
+          x: canvasPos.left - overlayPos.left,
+          y: canvasPos.top - overlayPos.top,
+          scaleX: canvasPos.width / overlayPos.width,
+          scaleY: canvasPos.height / overlayPos.height,
+          ease: Power3.easeInOut
+        });
+        tl.to(overlay, .3, {opacity: 0});
+        tl.set(overlay, {display: 'none'});
+      },
+
       onVoteButtonClicked: function () {
         $.ajax({
           type: "POST",

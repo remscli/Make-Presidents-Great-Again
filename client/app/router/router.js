@@ -6,7 +6,8 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
     routes: {
       '': 'home',
       'build': 'build',
-      'p/:token': 'show'
+      'p/:token': 'presidentShow',
+      'presidents': 'presidentIndex'
     },
 
     /** Start **/
@@ -23,8 +24,12 @@ define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
       this.trigger('build');
     },
 
-    show: function(token) {
+    presidentShow: function(token) {
       this.trigger('president:show', token);
+    },
+
+    presidentIndex: function() {
+      this.trigger('president:index');
     }
   });
 

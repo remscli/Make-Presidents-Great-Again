@@ -479,8 +479,9 @@ sub, sup {
 }
 
 .main {
-  position: relative;
+  overflow-x: auto;
   padding: 2rem;
+  position: relative;
 }
 
 html,
@@ -857,6 +858,74 @@ label {
   font-size: 1rem;
   width: 50px;
   text-align: center;
+}
+
+.card {
+  position: relative;
+  text-align: left;
+  background: #f7f7f7;
+  color: #272b39;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 5px 14px 4px rgba(39, 43, 57, 0.6);
+}
+.card__image img {
+  border-radius: 4px 4px 0 0;
+  max-width: 100%;
+}
+.card__body {
+  padding: 1rem 2rem;
+}
+.card__title {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 6rem;
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.card__votes {
+  float: right;
+  text-align: right;
+  margin-top: 6px;
+  width: 35%;
+  overflow: hidden;
+}
+.card__votes .vote__value {
+  color: #eb212e;
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.card__votes .vote__label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.card__top-info {
+  color: #eb212e;
+  font-size: 3rem;
+  font-weight: 700;
+  left: 2rem;
+  line-height: 1;
+  position: absolute;
+  top: 2rem;
+}
+.card--sm .card__title {
+  line-height: 5rem;
+  font-size: 1.7rem;
+}
+.card--sm .vote__value {
+  font-size: 2.4rem;
+}
+.card--sm .card__top-info {
+  font-size: 2.6rem;
+}
+.card--sm .card__votes {
+  margin-top: 3px;
 }
 
 .draw-area {
@@ -1287,4 +1356,47 @@ label {
   background: #fff;
   border-radius: 5px;
   will-change: transform;
+}
+
+.pr-index .title {
+  padding: 7rem 3rem;
+}
+.pr-index__presidents {
+  width: 100%;
+}
+.pr-index__presidents:before, .pr-index__presidents:after {
+  content: " ";
+  display: table;
+}
+.pr-index__presidents:after {
+  clear: both;
+}
+.pr-index__presidents--podium {
+  padding: 0 3rem;
+  margin-bottom: 0;
+}
+.pr-index__presidents--podium .pr-index__president-wrapper {
+  width: 33.333%;
+  float: left;
+}
+.pr-index__presidents--others {
+  text-align: center;
+}
+.pr-index__presidents--others .pr-index__president-wrapper {
+  display: inline-block;
+  width: 300px;
+}
+.pr-index__president-wrapper {
+  padding: 0 1.5rem 3rem;
+}
+.pr-index__president {
+  -webkit-transform: scale(0.97) translateY(10px);
+          transform: scale(0.97) translateY(10px);
+  -webkit-transition: all .2s ease;
+          transition: all .2s ease;
+}
+.pr-index__president:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  box-shadow: 0 16px 22px 4px rgba(39, 43, 57, 0.6);
 }

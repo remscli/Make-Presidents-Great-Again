@@ -1,0 +1,43 @@
+.pr-index {
+  .title {
+    padding: 7rem 3rem;
+  }
+
+  &__presidents {
+    width: 100%;
+    @include clearfix;
+
+    &--podium {
+      padding: 0 3rem;
+      margin-bottom: 0;
+
+      .pr-index__president-wrapper {
+        width: 33.333%;
+        float: left;
+      }
+
+    }
+
+    &--others {
+      text-align: center;
+      .pr-index__president-wrapper {
+        display: inline-block;
+        width: 300px;
+      }
+    }
+  }
+
+  &__president-wrapper {
+    padding: 0 1.5rem 3rem;
+  }
+
+  &__president {
+    transform: scale(0.97) translateY(10px);
+    transition: all .2s ease;
+
+    &:hover {
+      transform: scale(1);
+      box-shadow: 0 16px 22px 4px rgba($brand-primary, 0.6);
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<div class="pr-index">
+    <h1 class="title text-center" id="endMessage">
+        <small class="title__head">Most voted</small>
+        <span class="title__body">great presidents</span>
+    </h1>
+
+    <section class="pr-index__presidents pr-index__presidents--podium">
+        <% for (i = 0; i < 3; i++) { %>
+        <article class="pr-index__president-wrapper">
+            <div class="pr-index__president card">
+                <div class="card__top-info">#<%= i + 1 %></div>
+                <div class="card__image">
+                    <img src="/uploads/presidents/Hn5nPWuOeKNr.jpeg" alt="ALT TEXT HERE">
+                </div>
+                <div class="card__body">
+                    <div class="card__votes">
+                        <div class="vote__value"><%= 12340 / (i + 1) %></div>
+                        <div class="vote__label">votes</div>
+                    </div>
+                    <h3 class="card__title">Hillary Trump</h3>
+                </div>
+            </div>
+        </article>
+        <% } %>
+    </section>
+
+    <section class="pr-index__presidents pr-index__presidents--others">
+        <% for (i = 3; i < 17; i++) { %>
+        <article class="pr-index__president-wrapper">
+            <div class="pr-index__president card card--sm">
+                <div class="card__top-info">#<%= i + 1 %></div>
+                <div class="card__image">
+                    <img src="/uploads/presidents/Hn5nPWuOeKNr.jpeg" alt="ALT TEXT HERE">
+                </div>
+                <div class="card__body">
+                    <div class="card__votes">
+                        <div class="vote__value"><%= 12340 / (i + 1) %></div>
+                        <div class="vote__label">votes</div>
+                    </div>
+                    <h3 class="card__title">Hillary Trump</h3>
+                </div>
+            </div>
+        </article>
+        <% } %>
+    </section>
+</div>

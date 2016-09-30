@@ -45,8 +45,9 @@ sub, sup {
 
 
 .main {
-  position: relative;
+  overflow-x: auto;
   padding: 2rem;
+  position: relative;
 }
 html,
 body,

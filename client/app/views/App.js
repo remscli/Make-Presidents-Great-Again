@@ -5,6 +5,7 @@ define(['jquery',
     'app/views/Home',
     'app/views/Build',
     'app/views/PresidentShow',
+    'app/views/PresidentIndex',
     'app/views/Slideshow'],
   function ($,
             _,
@@ -13,6 +14,7 @@ define(['jquery',
             HomeView,
             BuildView,
             PresidentShowView,
+            PresidentIndexView,
             SlideshowView) {
 
     var App = Backbone.View.extend({
@@ -43,8 +45,9 @@ define(['jquery',
         // Build
         this.listenTo(this.router, 'build', this.goBuild);
 
-        // President Show
+        // Presidents
         this.listenTo(this.router, 'president:show', this.goPresidentShow);
+        this.listenTo(this.router, 'president:index', this.goPresidentIndex);
 
         this.router.start();
       },
@@ -82,6 +85,16 @@ define(['jquery',
           url: '/p/' + token,
           method: function () {
             this.currentPage = new PresidentShowView(token);
+          }
+        });
+      },
+
+      goPresidentIndex: function () {
+        this.slideshow.displayImage('background-build.jpg');
+        this.goTo(null, {
+          url: '/presidents',
+          method: function () {
+            this.currentPage = new PresidentIndexView();
           }
         });
       },

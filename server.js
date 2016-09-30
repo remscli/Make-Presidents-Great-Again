@@ -55,7 +55,8 @@ var server = http.Server(app);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use(express.static('client'));
+app.use("/uploads", express.static(__dirname + "/uploads"));
+app.use(express.static(__dirname + "/client"));
 
 var upload = multer({ dest: 'uploads/' });
 
@@ -172,7 +173,7 @@ apiRouter.post('/presidents/:token/vote', function (req, res) {
 
 // Otherwise redirect to the app
 app.get('*', function (req, res) {
-  res.sendFile('index.html', {"root": __dirname + '/client'});
+  res.sendFile('index.html', {"root": __dirname + "/client"});
 });
 
 

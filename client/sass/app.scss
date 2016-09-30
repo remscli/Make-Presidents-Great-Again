@@ -1,18 +1,20 @@
 @charset "UTF-8";
 
-@import "_base/_normalize",
-        "_base/_config",
-        "_base/_mixins",
-        "_base/_typography",
-        "_base/_layout",
-        "_base/_utilities",
-        "_base/_forms";
+@import '_base/normalize',
+        '_base/config',
+        '_base/mixins',
+        '_base/typography',
+        '_base/layout',
+        '_base/utilities',
+        '_base/forms';
 
-@import "_components/_buttons",
-        "_components/_bg-slideshow",
-        "_components/countdown",
-        "_components/_draw-area";
+@import '_components/buttons',
+        '_components/bg-slideshow',
+        '_components/countdown',
+        '_components/card',
+        '_components/draw-area';
 
-@import "_templates/_home",
-        "_templates/_build",
-        "_templates/_pr-show";
+@import '_templates/home',
+        '_templates/build',
+        '_templates/pr-show',
+        '_templates/pr-index';

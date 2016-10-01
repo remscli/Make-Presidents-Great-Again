@@ -11,12 +11,9 @@ define(['jquery',
 
       initialize: function () {
         this.originalSceneSize = 1400;
-        this.width = this.$el.width();
-        this.height = this.$el.height();
+        this.imagesFileNames = [];
 
-        this.scaleFactor = (this.width > this.height ? this.height : this.width) / this.originalSceneSize;
-        this.offsetX = (this.width - (this.originalSceneSize * this.scaleFactor)) / 2;
-        this.offsetY = (this.height - (this.originalSceneSize * this.scaleFactor)) / 2;
+        this.measure();
 
         // Create the renderer
         this.renderer = PIXI.autoDetectRenderer(this.width, this.height, {
@@ -29,8 +26,7 @@ define(['jquery',
         // Add the canvas to the HTML document
         this.el.appendChild(this.renderer.view);
 
-        $(this.renderer.view).height(this.height);
-        $(this.renderer.view).width(this.width);
+        this.sizer();
 
         // Create a container object
         this.stage = new PIXI.Container();
@@ -46,10 +42,35 @@ define(['jquery',
         function drawingPartsLoaded (drawingParts) {
           this.drawingParts = drawingParts;
         }
+
+        $( window ).resize(onResize.bind(this));
+        function onResize() {
+          this.clear();
+          this.measure();
+          this.sizer();
+
+          this.imagesFileNames.forEach(function (imageFileName) {
+            this.drawImage(imageFileName);
+          }, this);
+        }
       },
 
       update: function () {
         this.renderer.render(this.stage);
+      },
+
+      measure: function () {
+        this.width = this.$el.width();
+        this.height = this.$el.height();
+
+        this.scaleFactor = (this.width > this.height ? this.height : this.width) / this.originalSceneSize;
+        this.offsetX = (this.width - (this.originalSceneSize * this.scaleFactor)) / 2;
+        this.offsetY = (this.height - (this.originalSceneSize * this.scaleFactor)) / 2;
+      },
+
+      sizer: function () {
+        $(this.renderer.view).height(this.height);
+        $(this.renderer.view).width(this.width);
       },
 
       clear: function () {
@@ -57,6 +78,11 @@ define(['jquery',
           this.stage.removeChild(this.stage.children[0]);
         }
         this.update();
+      },
+
+      draw: function (imageFileName) {
+        this.imagesFileNames.push(imageFileName);
+        this.drawImage(imageFileName);
       },
 
       drawImage: function (imageFileName) {

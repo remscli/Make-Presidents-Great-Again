@@ -43,7 +43,7 @@ define(['jquery',
         this.canvas = new Canvas({el: "#drawingCanvas"});
 
         this.model.get('drawingParts').forEach(function (drawingPart) {
-          this.canvas.drawImage(drawingPart);
+          this.canvas.draw(drawingPart);
         }, this);
 
         // Grab the current date

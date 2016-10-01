@@ -115,7 +115,7 @@ define(['jquery',
             fileName = this.faceValue + fileName.replace('FACE-', '-');
           }
 
-          this.canvas.drawImage(fileName);
+          this.canvas.draw(fileName);
         }, this);
 
         TweenMax.to('#reset', 1, {opacity: 1});

@@ -32,7 +32,12 @@
     </div>
 
     <div class="pr-show__right">
-        <div class="draw-area draw-area--shown" id="drawingCanvas"></div>
+        <div class="draw-area draw-area--shown" id="drawingCanvas">
+            <div class="pr-show__votes">
+                <%= president.get('votesCount')%>
+                <div class="label">votes</div>
+            </div>
+        </div>
     </div>
 
     <div id="animationOverlay"></div>

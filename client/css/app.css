@@ -1348,6 +1348,23 @@ label {
   -webkit-transform: rotateX(180deg);
           transform: rotateX(180deg);
 }
+.pr-show__votes {
+  position: absolute;
+  z-index: 10;
+  color: #eb212e;
+  top: 2rem;
+  left: 2rem;
+  font-size: 4rem;
+  line-height: 1;
+}
+.pr-show__votes .label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 2px;
+  text-transform: uppercase;
+  color: #272b39;
+}
 .pr-show #animationOverlay {
   position: absolute;
   -webkit-transform-origin: 0 0;

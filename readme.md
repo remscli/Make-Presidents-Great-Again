@@ -1,4 +1,4 @@
-# Build Your Perfect President
+# Make Presidents Great Again
 
 ## How to install ?
 
@@ -18,13 +18,13 @@ Install all node modules with npm :
 
     $ npm install
 
-Finally, launch site with nodemon (automatic relaunch):
+Launch site with nodemon (automatic relaunch):
 
     $ npm install -g nodemon
     $ nodemon server
 
-or simply with :
+Start sass compilation if needed :
+    
+    $ gulp
 
-    $ node server
-
-And go to http://localhost:4000
+Finally go to http://localhost:4000

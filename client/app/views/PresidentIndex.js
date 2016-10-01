@@ -26,8 +26,10 @@ define(['jquery',
       },
 
       render: function () {
-        console.log(this.model);
-        this.$el.html(this.template({presidents: this.model.models}));
+        this.$el.html(this.template({
+          podiumPresidents: this.model.models.filter(function(el, i) { return i < 3}),
+          otherPresidents: this.model.models.filter(function(el, i) { return i >= 3})
+        }));
 
         this.ready();
       }

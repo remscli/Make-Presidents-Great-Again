@@ -1,6 +1,7 @@
 .pr-index {
   .title {
     padding: 7rem 3rem;
+    margin-bottom: 0;
   }
 
   &__presidents {
@@ -8,12 +9,14 @@
     @include clearfix;
 
     &--podium {
-      padding: 0 3rem;
+      font-size: 0;
       margin-bottom: 0;
+      padding: 0 3rem;
+      text-align: center;
 
       .pr-index__president-wrapper {
+        display: inline-block;
         width: 33.333%;
-        float: left;
       }
 
     }
@@ -32,12 +35,13 @@
   }
 
   &__president {
-    transform: scale(0.97) translateY(10px);
+    transform: scale(0.97);
+    transform-origin: 50% 100%;
     transition: all .2s ease;
 
     &:hover {
-      transform: scale(1);
       box-shadow: 0 16px 22px 4px rgba($brand-primary, 0.6);
+      transform: scale(1);
     }
   }
 }

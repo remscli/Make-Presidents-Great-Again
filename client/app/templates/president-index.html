@@ -4,43 +4,50 @@
         <span class="title__body">great presidents</span>
     </h1>
 
+    <% if (podiumPresidents.length < 1) { %>
+    <div class="text-center">
+        <h3>No great presidents found...</h3>
+        <a href="/build" class="btn btn--primary" nav-link>Start by building your own</a>
+    </div>
+    <% } %>
+
     <section class="pr-index__presidents pr-index__presidents--podium">
-        <% for (i = 0; i < 3; i++) { %>
+        <% _.each(podiumPresidents, function(president, i) { %>
         <article class="pr-index__president-wrapper">
-            <div class="pr-index__president card">
+            <a href="/p/<%= president.get('token')%>" class="pr-index__president card" nav-link>
                 <div class="card__top-info">#<%= i + 1 %></div>
                 <div class="card__image">
-                    <img src="/uploads/presidents/Hn5nPWuOeKNr.jpeg" alt="ALT TEXT HERE">
+                    <img src="/uploads/presidents/<%= president.get('token') %>.jpeg" alt="ALT TEXT HERE">
                 </div>
                 <div class="card__body">
                     <div class="card__votes">
-                        <div class="vote__value"><%= 12340 / (i + 1) %></div>
+                        <div class="vote__value"><%= president.get('votesCount') %></div>
                         <div class="vote__label">votes</div>
                     </div>
-                    <h3 class="card__title">Hillary Trump</h3>
+                    <h3 class="card__title"><%= president.get('name') %></h3>
                 </div>
-            </div>
+            </a>
         </article>
-        <% } %>
+        <% }); %>
     </section>
 
     <section class="pr-index__presidents pr-index__presidents--others">
-        <% for (i = 3; i < 17; i++) { %>
+        <% _.each(otherPresidents, function(president, i) { %>
         <article class="pr-index__president-wrapper">
-            <div class="pr-index__president card card--sm">
-                <div class="card__top-info">#<%= i + 1 %></div>
+            <a href="/p/<%= president.get('token')%>" class="pr-index__president card card--sm" nav-link>
+                <div class="card__top-info">#<%= i + 4 %></div>
                 <div class="card__image">
-                    <img src="/uploads/presidents/Hn5nPWuOeKNr.jpeg" alt="ALT TEXT HERE">
+                    <img src="/uploads/presidents/<%= president.get('token') %>.jpeg" alt="ALT TEXT HERE">
                 </div>
                 <div class="card__body">
                     <div class="card__votes">
-                        <div class="vote__value"><%= 12340 / (i + 1) %></div>
+                        <div class="vote__value"><%= president.get('votesCount') %></div>
                         <div class="vote__label">votes</div>
                     </div>
-                    <h3 class="card__title">Hillary Trump</h3>
+                    <h3 class="card__title"><%= president.get('name') %></h3>
                 </div>
-            </div>
+            </a>
         </article>
-        <% } %>
+        <% }); %>
     </section>
 </div>

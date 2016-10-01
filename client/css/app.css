@@ -832,6 +832,9 @@ label {
   background-image: url("../img/background-hillary-2.jpg");
 }
 
+.countdown {
+  pointer-events: none;
+}
 .countdown > * {
   display: inline-block;
 }
@@ -861,6 +864,7 @@ label {
 }
 
 .card {
+  display: block;
   position: relative;
   text-align: left;
   background: #f7f7f7;
@@ -1360,6 +1364,7 @@ label {
 
 .pr-index .title {
   padding: 7rem 3rem;
+  margin-bottom: 0;
 }
 .pr-index__presidents {
   width: 100%;
@@ -1372,12 +1377,14 @@ label {
   clear: both;
 }
 .pr-index__presidents--podium {
-  padding: 0 3rem;
+  font-size: 0;
   margin-bottom: 0;
+  padding: 0 3rem;
+  text-align: center;
 }
 .pr-index__presidents--podium .pr-index__president-wrapper {
+  display: inline-block;
   width: 33.333%;
-  float: left;
 }
 .pr-index__presidents--others {
   text-align: center;
@@ -1390,13 +1397,15 @@ label {
   padding: 0 1.5rem 3rem;
 }
 .pr-index__president {
-  -webkit-transform: scale(0.97) translateY(10px);
-          transform: scale(0.97) translateY(10px);
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
   -webkit-transition: all .2s ease;
           transition: all .2s ease;
 }
 .pr-index__president:hover {
+  box-shadow: 0 16px 22px 4px rgba(39, 43, 57, 0.6);
   -webkit-transform: scale(1);
           transform: scale(1);
-  box-shadow: 0 16px 22px 4px rgba(39, 43, 57, 0.6);
 }

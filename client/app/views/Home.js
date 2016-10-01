@@ -38,6 +38,7 @@ define(['jquery',
         tl.fromTo(this.starsEl, .3, {opacity: 0, y: 20}, {opacity: 1, y: 0}, .8);
         tl.fromTo(this.titleEl, .3, {opacity: 0, y: 20}, {opacity: 1, y: 0});
         tl.fromTo('.home__button', .3, {opacity: 0, y: 20}, {opacity: 1, y: 0});
+        tl.fromTo('.home__index-button', .3, {opacity: 0, y: 20}, {opacity: 1, y: 0});
       },
 
       hide: function () {
@@ -52,7 +53,8 @@ define(['jquery',
         tl.to('.home-border', .25, {opacity: 0});
         tl.to([this.starsEl, homeButtonWrpEl], .25, {opacity: 0}, 0);
         tl.to([this.starsEl, homeButtonWrpEl], .3, {width: 0, padding: 0}, '-=0.05');
-        tl.to([this.titleEl, this.barsEls], .3, {height: 0, margin: 0});
+        tl.to('.home__index-button', .3, {y: -20, opacity: 0});
+        tl.to([this.titleEl, this.barsEls], .3, {height: 0, margin: 0}, '-=0.2');
         tl.to(['.home'], .3, {width: '50%'}, '-=0.1');
 
         function onTimelineCompleted() {

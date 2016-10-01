@@ -774,6 +774,9 @@ label {
 .btn--outline:hover::after {
   left: 20%;
 }
+.btn--clear {
+  background: none;
+}
 .btn--success {
   background: #33EB5B;
 }
@@ -787,9 +790,6 @@ label {
   width: 25px;
   vertical-align: middle;
   margin-right: 10px;
-}
-.btn--twitter.btn--clear {
-  background: none;
 }
 .btn--twitter.btn--clear:hover {
   background: #00aced;
@@ -1051,7 +1051,7 @@ label {
 .home__button-wrapper {
   padding: 1.1rem 2rem;
 }
-.home__button {
+.home__button, .home__index-button {
   opacity: 0;
 }
 .home__stars {

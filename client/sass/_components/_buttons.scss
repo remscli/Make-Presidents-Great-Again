@@ -66,6 +66,10 @@
     }
   }
 
+  &--clear {
+    background: none;
+  }
+
   &--success {
     background: $color-success;
   }
@@ -84,7 +88,6 @@
     }
 
     &.btn--clear {
-      background: none;
       &:hover {
         background: #00aced;
       }

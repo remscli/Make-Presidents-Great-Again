@@ -1,4 +1,3 @@
-var _                 = require('lodash');
 var express           = require('express');
 var app               = express();
 var http              = require('http');
@@ -63,7 +62,7 @@ var upload = multer({ dest: 'uploads/' });
 
 /*******************
  *
- *  ROUTER
+ *  ROUTER / API ENDPOINTS
  *
  *******************/
 
@@ -145,8 +144,6 @@ apiRouter.post('/presidents/:token/vote', function (req, res) {
   var voterIpAddress = getIP(req).clientIp;
 
   President.find({'votes.ipAddress': voterIpAddress}, function (err, presidents) {
-    console.log(presidents);
-
     // Check for errors or if the IP address is already present
     if (err || presidents.length > 0) {
       return res.status(403).json({

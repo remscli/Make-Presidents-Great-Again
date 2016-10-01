@@ -1,5 +1,5 @@
 {
-  "name": "build-your-perfect-president",
+  "name": "make-presidents-great-again",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,7 +7,6 @@
     "body-parser": "^1.15.2",
     "express": "^4.13.3",
     "ipware": "^1.0.0",
-    "lodash": "^3.10.1",
     "multer": "^1.2.0",
     "rand-token": "^0.2.1"
   },
